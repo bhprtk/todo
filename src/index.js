@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Main from './components/Main';
 
-const App = () => (
-	<div>
-		<h1>hello from react</h1>
-	</div>
-)
+import './styles/style.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+const App = () => <Main />
 
 ReactDOM.render(
 	<App />,
