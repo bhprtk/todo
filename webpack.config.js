@@ -6,6 +6,7 @@ module.exports = {
 		contentBase: './dist',
 		hot: true
 	},
+	devtool: 'cheap-module-eval-source-map',
 	entry: [
 		'webpack-dev-server/client?http://localhost:8080',
 		'webpack/hot/only-dev-server',
