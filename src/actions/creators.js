@@ -1,3 +1,6 @@
-// import types from './types';
+import types from './types';
 
-export const addToDo = (todo) => console.log ('todo:', todo)
+export const addToDo = (todo) => ({
+	type: types.ADD_TODO,
+	todo
+})

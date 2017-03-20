@@ -6,8 +6,9 @@ module.exports = {
 		contentBase: './dist',
 		hot: true
 	},
-	devtool: 'cheap-module-eval-source-map',
+	devtool: 'cheap-module-source-map',
 	entry: [
+		'babel-polyfill',
 		'webpack-dev-server/client?http://localhost:8080',
 		'webpack/hot/only-dev-server',
 		'./src/index.js'

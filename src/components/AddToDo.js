@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as actions from '../actions/creators';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -20,10 +21,10 @@ class AddToDo extends Component {
 	}
 
 	submitTodo(e) {
-		const { action } = this.props;
+		const { actions } = this.props;
 		e.preventDefault();
 		console.log ('this.state.inputValue:', this.state.inputValue)
-		action.addToDo(this.state.inputValue);
+		actions.addToDo(this.state.inputValue);
 	}
 
 	render() {
