@@ -1,11 +1,12 @@
 import { take, call, put } from 'redux-saga/effects';
 import types from '../actions/types';
 import actions from '../actions/creators';
+import { addTodo } from '../services/firebase_config';
 
 export default () => {
 
 	function* worker(value) {
-		console.log ('value:', value)
+		addTodo(value);
 	}
 
 	function* watcher() {
