@@ -46,7 +46,7 @@ class AddToDo extends Component {
 
 function mapStateToProps(state) {
 	return {
-
+		todos: state.todos
 	}
 }
 

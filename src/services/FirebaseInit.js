@@ -1,4 +1,3 @@
-console.log('here')
 import * as firebase from 'firebase';
 
 const config = {
