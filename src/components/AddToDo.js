@@ -21,16 +21,14 @@ class AddToDo extends Component {
 	}
 
 	submitTodo(e) {
-		const { actions } = this.props;
 		e.preventDefault();
-		console.log ('this.state.inputValue:', this.state.inputValue)
+		const { actions } = this.props;
 		actions.addToDo(this.state.inputValue);
 	}
 
 	render() {
-		console.log ('this.props.todos:', this.props.todos)
 		return (
-			<div className="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
+			<div className="col-md-4 col-sm-4 col-xs-4">
 				<h1 className="text-center">TODO LIST</h1>
 				<form
 					onSubmit={this.submitTodo}>
@@ -38,6 +36,7 @@ class AddToDo extends Component {
 						className="form-control"
 						onChange={this.inputChange}
 						onSubmit={this.submitTodo}
+						placeholder="Add a to-do..."
 						type="text"/>
 				</form>
 			</div>

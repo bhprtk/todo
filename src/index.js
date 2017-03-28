@@ -9,6 +9,10 @@ import types from './actions/types';
 import './services/FirebaseInit.js';
 import './styles/style.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/react-slick/dist/react-slick.min.js';
+import '../node_modules/slick-carousel/slick/slick.css';
+import '../node_modules/slick-carousel/slick/slick-theme.css';
+import '../node_modules/slick-carousel/slick/slick.min.js';
 
 const store = configureStore();
 

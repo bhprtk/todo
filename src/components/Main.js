@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import AddToDo from './AddToDo'
+import Calendar from './Calendar';
+import DisplayTodo from './DisplayTodo';
 
 class Main extends Component {
 	render() {
 		return (
 			<div className="container">
-				<AddToDo />
+				<div className="row">
+					<AddToDo />
+				</div>
+				<Calendar />
+				
 			</div>
 		)
 	}
