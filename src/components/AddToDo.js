@@ -28,6 +28,7 @@ class AddToDo extends Component {
 	}
 
 	render() {
+		console.log ('this.props.todos:', this.props.todos)
 		return (
 			<div className="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
 				<h1 className="text-center">TODO LIST</h1>
@@ -46,7 +47,7 @@ class AddToDo extends Component {
 
 function mapStateToProps(state) {
 	return {
-		todos: state.todos
+		todos: state.todos.toJS()
 	}
 }
 

@@ -2,13 +2,12 @@ import { Map } from 'immutable';
 import types from '../actions/types';
 import { createReducer } from 'reduxsauce';
 
-const INITIAL_STATE = {
-	todos: Map()
-}
+const INITIAL_STATE = Map();
 
 export function onChangeTodos(state = INITIAL_STATE, action) {
-	console.log ('action:', action)
-	return state;
+	const { todos } = action;
+	
+	return state.merge(todos);
 }
 
 const ACTION_HANDLERS = {
