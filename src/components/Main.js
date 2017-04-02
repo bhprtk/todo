@@ -9,9 +9,9 @@ class Main extends Component {
 			<div className="container">
 				<div className="row">
 					<AddToDo />
+					<Calendar />
 				</div>
-				<Calendar />
-				
+
 			</div>
 		)
 	}

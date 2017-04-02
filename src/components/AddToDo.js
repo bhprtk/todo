@@ -29,7 +29,6 @@ class AddToDo extends Component {
 	render() {
 		return (
 			<div className="col-md-4 col-sm-4 col-xs-4">
-				<h1 className="text-center">TODO LIST</h1>
 				<form
 					onSubmit={this.submitTodo}>
 					<input

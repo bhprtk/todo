@@ -1,36 +1,86 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import Slider from 'react-slick';
+import { Carousel } from 'react-bootstrap';
+import { GridList, GridTile } from 'material-ui/GridList';
+import CalendarDay from './CalendarDay';
+import $ from 'jquery';
 
 
 class Calendar extends Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			days: [moment().format()]
+		}
+
+		this.onClickLeft = this.onClickLeft.bind(this);
+		this.onClickRight = this.onClickRight.bind(this);
+
 	}
 
+	componentWillMount() {
+		let days = [];
+		for(let i = -3; i <= 3; i++) {
+			days.push(moment().add(i, 'day').format())
+		}
+		this.setState({
+			days
+		})
+	}
+
+	onClickLeft() {
+		const $item = $('.item');
+		// let days = this.state.days;
+		// let newDay = moment(days[0]).subtract(1, 'day').format();
+		// days.unshift(newDay)
+		// console.log ('days:', days)
+		// this.setState({days})
+
+		$item.animate({ left: '+=140px' })
+	}
+
+	onClickRight() {
+		const $item = $('.item');
+		$item.animate({ left: '-=140px' })
+	}
+
+
 	render() {
-		var settings = {
-		 dots: true,
-		 infinite: true,
-		 speed: 500,
-		 slidesToShow: 1,
-		 slidesToScroll: 1
-	 };
-		const today = moment().format('dddd');
-		console.log ('today:', today)
+		const { days } = this.state;
+
 		return (
-				<Slider {...settings}>
-        <div><h3>1</h3></div>
-        <div><h3>2</h3></div>
-        <div><h3>3</h3></div>
-        <div><h3>4</h3></div>
-        <div><h3>5</h3></div>
-        <div><h3>6</h3></div>
-      </Slider>
+			<div className="calendar-container col-md-8">
+				<div
+					className="left"
+					onClick={this.onClickLeft}>
+					<span className="glyphicon glyphicon-menu-left"></span>
+				</div>
+				<div
+					className="right"
+					onClick={this.onClickRight}>
+					<span className="glyphicon glyphicon-menu-right"></span>
+				</div>
+
+				<div className="list-container">
+					<div className="list">
+						{days.map((day, index) => (
+							<div className="item" key={index}>
+								{moment(day).format('dddd MMMM D')}
+							</div>
+						))}
+
+					</div>
+
+				</div>
+
+			</div>
 
 		)
 	}
-
 }
+
+
 
 export default Calendar;
