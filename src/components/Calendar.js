@@ -12,7 +12,8 @@ class Calendar extends Component {
 		super(props);
 
 		this.state = {
-			days: [moment().format()]
+			days: [moment().format()],
+			startIndex: 0
 		}
 
 		this.onClickLeft = this.onClickLeft.bind(this);
@@ -32,23 +33,41 @@ class Calendar extends Component {
 
 	onClickLeft() {
 		const $item = $('.item');
-		// let days = this.state.days;
-		// let newDay = moment(days[0]).subtract(1, 'day').format();
-		// days.unshift(newDay)
+		const $list = $('.list');
+		let days = this.state.days;
+		// const { startIndex } = this.state;
+		let newDay = moment(days[0]).subtract(1, 'day').format();
+		//
+		//
+		// console.log ('$item:', $item)
+		days.unshift(newDay)
+		days.pop()
 		// console.log ('days:', days)
-		// this.setState({days})
+		this.setState({days})
+		// this.setState({startIndex: startIndex + 1})
+		$item.animate({ 'left': '+=140px' }, 'fast')
+		$list.css({'margin-left': '-=140px'})
 
-		$item.animate({ left: '+=140px' })
 	}
 
 	onClickRight() {
 		const $item = $('.item');
-		$item.animate({ left: '-=140px' })
+		const $list = $('.list');
+		let days = this.state.days;
+		const lastDay = days[days.length - 1];
+		let newDay = moment(lastDay).add(1, 'day').format();
+		days.push(newDay)
+		days.shift()
+		this.setState({days});
+		$item.animate({ left: '-=140px' }, 'fast')
+		$list.css({'margin-left': '+=140px'})
 	}
 
 
 	render() {
-		const { days } = this.state;
+		const { days, startIndex } = this.state;
+		console.log ('days:', days)
+		let temp = ['what', 'what', 'what'];
 
 		return (
 			<div className="calendar-container col-md-8">
@@ -64,12 +83,22 @@ class Calendar extends Component {
 				</div>
 
 				<div className="list-container">
+
+
 					<div className="list">
-						{days.map((day, index) => (
-							<div className="item" key={index}>
-								{moment(day).format('dddd MMMM D')}
-							</div>
-						))}
+
+						{days.map((day, index) => {
+
+								return (
+									<div className="item" key={index}>
+										{moment(day).format('dddd MMMM D')}
+									</div>
+								)
+
+
+
+
+						})}
 
 					</div>
 
