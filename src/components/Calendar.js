@@ -18,6 +18,7 @@ class Calendar extends Component {
 
 		this.onClickLeft = this.onClickLeft.bind(this);
 		this.onClickRight = this.onClickRight.bind(this);
+		// this.onHover = this.onHover.bind(this);
 
 	}
 
@@ -66,13 +67,11 @@ class Calendar extends Component {
 
 	render() {
 		const { days, startIndex } = this.state;
-		console.log ('days:', days)
-		let temp = ['what', 'what', 'what'];
 
 		return (
 			<div className="calendar-container col-md-8">
 				<div
-					className="left"
+					className="left animated pulse"
 					onClick={this.onClickLeft}>
 					<span className="glyphicon glyphicon-menu-left"></span>
 				</div>
@@ -87,18 +86,7 @@ class Calendar extends Component {
 
 					<div className="list">
 
-						{days.map((day, index) => {
-
-								return (
-									<div className="item" key={index}>
-										{moment(day).format('dddd MMMM D')}
-									</div>
-								)
-
-
-
-
-						})}
+						{days.map((day, index) => <CalendarDay day={day} key={index} />)}
 
 					</div>
 
