@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import * as actions from '../actions/creators';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import IconButton from 'material-ui/IconButton';
+import ActionGrade from 'material-ui/svg-icons/action/grade';
+import $ from 'jquery';
 
 class AddToDo extends Component {
 	constructor(props) {
@@ -13,6 +16,7 @@ class AddToDo extends Component {
 
 		this.inputChange = this.inputChange.bind(this);
 		this.submitTodo = this.submitTodo.bind(this);
+		this.star = this.star.bind(this);
 	}
 
 	inputChange(e) {
@@ -26,17 +30,37 @@ class AddToDo extends Component {
 		actions.addToDo(this.state.inputValue);
 	}
 
+	star() {
+		$('.star').toggleClass('glyphicon-star-empty glyphicon-star')
+		// $('.star').toggleClass('not-starred starred')
+	}
+
 	render() {
 		return (
-			<div className="col-md-4 col-sm-4 col-xs-4">
+			<div
+				className="col-md-4 col-sm-4 col-xs-4 add-to-do">
 				<form
 					onSubmit={this.submitTodo}>
-					<input
-						className="form-control"
-						onChange={this.inputChange}
-						onSubmit={this.submitTodo}
-						placeholder="Add a to-do..."
-						type="text"/>
+					<div className="input-group">
+						<input
+							className="form-control"
+							onChange={this.inputChange}
+							onSubmit={this.submitTodo}
+							placeholder="Add a to-do..."
+							type="text"/>
+						<div
+							className="input-group-addon star-div"
+							style={{
+								background: '#fff',
+							}}>
+							<span
+								className="glyphicon glyphicon-star-empty star"
+								onClick={this.star}>
+							</span>
+
+						</div>
+
+					</div>
 				</form>
 			</div>
 		)

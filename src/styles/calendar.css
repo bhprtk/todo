@@ -10,7 +10,6 @@
 .list {
 	min-width: 144000px;
 	margin-left: -140px;
-	/*float: left;*/
 }
 
 .temp {
@@ -33,7 +32,6 @@
 	float: left;
 	height: 75px;
 	padding-top: 30px;
-	/*padding-right: 230px;*/
 	width: 20px;
 	cursor: pointer;
 }
@@ -44,8 +42,4 @@
 	padding-top: 30px;
 	width: 20px;
 	cursor: pointer;
-}
-
-.vertical-rule {
-	border-left: 1px solid #000;
 }
