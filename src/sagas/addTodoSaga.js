@@ -1,6 +1,5 @@
 import { take, call, put } from 'redux-saga/effects';
 import types from '../actions/types';
-import actions from '../actions/creators';
 import { addTodo } from '../services/firebase_config';
 
 export default () => {

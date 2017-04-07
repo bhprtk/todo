@@ -13,3 +13,8 @@ export const selectDay = (selectedDay) => ({
 	type: types.SELECT_DAY,
 	selectedDay
 })
+
+export const selectedDayTodos = (todos) => ({
+	type: types.SELECTED_DAY_TODOS,
+	todos
+})

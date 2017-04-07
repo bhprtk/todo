@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AddToDo from './AddToDo'
-import Calendar from './Calendar';
-import DisplayTodo from './DisplayTodo';
+import Calendar from './Calendar/Calendar';
+import DisplayTodo from './DisplayTodo/DisplayTodo';
 
 class Main extends Component {
 	render() {
@@ -10,6 +10,9 @@ class Main extends Component {
 				<div className="row">
 					<AddToDo />
 					<Calendar />
+				</div>
+				<div className="row">
+					<DisplayTodo />
 				</div>
 
 			</div>

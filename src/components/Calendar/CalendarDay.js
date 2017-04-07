@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as actions from '../actions/creators';
+import * as actions from '../../actions/creators';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import moment from 'moment';
@@ -23,18 +23,6 @@ class CalendarDay extends Component {
 		const { day, actions } = this.props;
 		actions.selectDay(day);
 	}
-
-	// componentWillUpdate(nextProps, nextState) {
-	// 	const { day } = nextProps;
-	// 	const { selectedDay } = nextProps.selectedDay;
-	// 	console.log('selectedDay', moment(selectedDay).format('dddd MMMM DD'))
-	// 	console.log('day', moment(day).format('dddd MMMM DD'))
-	// 	const $item = $('.item');
-	// 	console.log ('$item:', $item)
-	// 	if(moment(day).format('dddd MMMM DD') === moment(selectedDay).format('dddd MMMM DD')) {
-	// 		$('.item').css({background: 'red'})
-	// 	}
-	// }
 
 	render() {
 		const { day } = this.props;

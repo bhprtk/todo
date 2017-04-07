@@ -9,3 +9,14 @@ export function addTodo(todo) {
 		.ref(`${today}/${now}`)
 		.set(todo)
 }
+
+export function getTodo(selectedDay) {
+	const date = moment(selectedDay).format('MM-DD-YYYY');
+	return (
+		firebase
+		.database()
+		.ref(`${date}`)
+		.once('value')
+		.then(snap => snap.val())
+	)
+}
