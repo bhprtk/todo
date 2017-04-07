@@ -8,7 +8,8 @@ class DisplayTodo extends Component {
 	}
 
 	render() {
-		const { selectedDayTodos, selectedDay } = this.props;
+		const { selectedDay } = this.props;
+		const { selectedDayTodos } = this.props.selectedDayTodos;
 		console.log ('selectedDayTodos:', selectedDayTodos)
 		return (
 			<div className="col-md-6 col-sm-6 col-xs-6">
