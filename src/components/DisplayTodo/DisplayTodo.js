@@ -12,8 +12,15 @@ class DisplayTodo extends Component {
 		const { selectedDayTodos } = this.props.selectedDayTodos;
 		console.log ('selectedDayTodos:', selectedDayTodos)
 		return (
-			<div className="col-md-6 col-sm-6 col-xs-6">
-				what
+			<div
+				className="col-md-6 col-sm-6 col-xs-6 list-group todo-group">
+				{Object.keys(selectedDayTodos)
+					.map((time, index) =>
+						<IndividualList
+							key={index}
+							time={time}
+							todo={selectedDayTodos[time]} />
+					)}
 			</div>
 
 		)
