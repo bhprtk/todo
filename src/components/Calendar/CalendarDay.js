@@ -19,6 +19,11 @@ class CalendarDay extends Component {
 		this.selectDay = this.selectDay.bind(this);
 	}
 
+	componentWillMount() {
+		const { actions } = this.props;
+		actions.selectDay(moment().format());
+	}
+
 	selectDay() {
 		const { day, actions } = this.props;
 		actions.selectDay(day);
@@ -27,6 +32,7 @@ class CalendarDay extends Component {
 	render() {
 		const { day } = this.props;
 		const { selectedDay } = this.props.selectedDay;
+		console.log ('selectedDay:', selectedDay)
 		if (moment(day).format('dddd MMMM DD') === moment(selectedDay).format('dddd MMMM DD')){
 			return (
 				<div

@@ -11,19 +11,25 @@ class DisplayTodo extends Component {
 		const { selectedDay } = this.props;
 		const { selectedDayTodos } = this.props.selectedDayTodos;
 		console.log ('selectedDayTodos:', selectedDayTodos)
-		return (
-			<div
-				className="col-md-6 col-sm-6 col-xs-6 list-group todo-group">
-				{Object.keys(selectedDayTodos)
-					.map((time, index) =>
+		if(selectedDayTodos) {
+			return (
+				<div
+					className="col-md-6 col-sm-6 col-xs-6 list-group todo-group">
+					{Object.keys(selectedDayTodos)
+						.map((time, index) =>
 						<IndividualList
 							key={index}
 							time={time}
 							todo={selectedDayTodos[time]} />
 					)}
-			</div>
+				</div>
 
-		)
+			)
+		} else {
+			return (
+				<div></div>
+			)
+		}
 	}
 
 }
