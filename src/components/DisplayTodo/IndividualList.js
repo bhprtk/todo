@@ -33,20 +33,28 @@ class IndividualList extends Component {
 	render() {
 		const { time } = this.props;
 		const { todo, done } = this.props.todo;
-		// const timeAdded = moment(time).format('h:mm a');
-		// console.log ('todo:', todo)
-		// console.log ('timeAdded:', timeAdded)
 		return (
 			<div
 				className="todo-item list-group-item">
 				<blockquote className="blockquote row">
-					<div className="pull-left not-menu">
-						<div
-							className="glyphicon glyphicon-unchecked"
-							onClick={this.markDone}></div>
-						<div className="todo-text">{todo}</div>
+						{done ? (
+							<div className="pull-left not-menu">
+								<div
+									className="glyphicon glyphicon-check"
+									onClick={this.markDone}>
+								</div>
+								<div className="todo-text strike">{todo}</div>
+							</div>
+						) : (
+							<div className="pull-left not-menu">
+								<div
+									className="glyphicon glyphicon-unchecked"
+									onClick={this.markDone}>
+								</div>
+								<div className="todo-text">{todo}</div>
+							</div>
+						)}
 
-					</div>
 					<Menu />
 				</blockquote>
 
