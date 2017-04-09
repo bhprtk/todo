@@ -15,7 +15,9 @@ class DisplayTodo extends Component {
 			return (
 				<div
 					className="col-md-6 col-sm-6 col-xs-6 list-group todo-group">
-					{Object.keys(selectedDayTodos)
+					{Object
+						.keys(selectedDayTodos)
+						.sort()
 						.map((time, index) =>
 						<IndividualList
 							key={index}
