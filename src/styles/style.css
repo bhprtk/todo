@@ -2,21 +2,40 @@
 	padding-top: 20px;
 }
 
+.add-to-do-input {
+	height: 100px;
+}
+
+.blockquote {
+	display: flex;
+	justify-content: space-between;
+}
+
 #body {
 	background: #F5F5F5;
 	padding-top: 10px;
 }
 
-.blockquote {
-	padding-top: -10px;
+.strike {
+	color: #d3d3d3;
+	text-decoration: line-through;
 }
 
 .checkbox {
 	margin: 10px;
 }
 
+.glyphicon-check {
+	color: #66BB6A;
+	font-size: 32px;
+}
+
+.glyphicon-unchecked {
+	font-size: 32px;
+}
+
 .glyphicon-unchecked:hover {
-	color: #E57373;
+	color: #66BB6A;
 }
 
 .glyphicon-star {
@@ -39,12 +58,13 @@
 }
 
 .todo-text {
-	margin-left: 10px;
+	margin-left: -300px;
+	margin-top: 5px;
 }
 
 .todo-item {
 	margin: 10px;
-	height: 70px;
+	height: 75px;
 	cursor: pointer;
 	color: #4C5769;
 	-webkit-transition: 0.5s;

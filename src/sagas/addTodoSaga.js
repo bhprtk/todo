@@ -4,15 +4,20 @@ import { addTodo } from '../services/firebase_config';
 
 export default () => {
 
-	function* worker(value) {
-		addTodo(value);
+	function* worker(data) {
+		const { todo, selectedDay } = data;
+		const newData = {
+			todo,
+			done: false
+		}
+		addTodo(newData, selectedDay);
 	}
 
 	function* watcher() {
 		while(true) {
 			const input = yield take(types.ADD_TODO);
-			const { todo } = input;
-			yield call(worker, todo);
+			const { data } = input;
+			yield call(worker, data);
 		}
 	}
 

@@ -1,8 +1,8 @@
 import types from './types';
 
-export const addToDo = (todo) => ({
+export const addToDo = (data) => ({
 	type: types.ADD_TODO,
-	todo
+	data
 })
 
 export const onChangeTodos = (todos) => {

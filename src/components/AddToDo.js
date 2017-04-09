@@ -27,12 +27,15 @@ class AddToDo extends Component {
 	submitTodo(e) {
 		e.preventDefault();
 		const { actions } = this.props;
-		actions.addToDo(this.state.inputValue);
+		const { selectedDay } = this.props.selectedDay;
+		actions.addToDo({
+			todo: this.state.inputValue,
+			selectedDay
+		});
 	}
 
 	star() {
 		$('.star').toggleClass('glyphicon-star-empty glyphicon-star')
-		// $('.star').toggleClass('not-starred starred')
 	}
 
 	render() {
@@ -43,11 +46,14 @@ class AddToDo extends Component {
 					onSubmit={this.submitTodo}>
 					<div className="input-group">
 						<input
-							className="form-control"
+							className="form-control add-to-do-input"
 							onChange={this.inputChange}
 							onSubmit={this.submitTodo}
 							placeholder="Add a to-do..."
-							type="text"/>
+							type="text"
+							style={{
+								height: 50
+							}}/>
 						<div
 							className="input-group-addon star-div"
 							style={{
@@ -69,7 +75,8 @@ class AddToDo extends Component {
 
 function mapStateToProps(state) {
 	return {
-		todos: state.todos.toJS()
+		todos: state.todos.toJS(),
+		selectedDay: state.selectedDay.toJS()
 	}
 }
 
