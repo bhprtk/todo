@@ -1,13 +1,17 @@
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import $ from 'jquery';
 import moment from 'moment';
 import Menu from './Menu';
+import * as actions from '../../actions/creators';
 
 class IndividualList extends Component {
 	constructor(props) {
 		super(props);
 
 		this.check = this.check.bind(this);
+		this.markDone = this.markDone.bind(this);
 	}
 
 	check(e) {
@@ -15,6 +19,15 @@ class IndividualList extends Component {
 		const $target = $(e.target).siblings('.todo-text');
 		console.log ('$target:', $target)
 		$target.toggleClass("strike");
+	}
+
+	markDone() {
+		const { time, actions } = this.props;
+		const { done } = this.props.todo;
+		const { selectedDay } = this.props.selectedDay;
+		let value = !done;
+		const data = {time, selectedDay, value}
+		actions.markDone(data)
 	}
 
 	render() {
@@ -25,13 +38,16 @@ class IndividualList extends Component {
 		// console.log ('timeAdded:', timeAdded)
 		return (
 			<div
-				className="list-group-item todo-item">
-				<blockquote className="blockquote">
-
+				className="todo-item list-group-item">
+				<blockquote className="blockquote row">
+					<div className="pull-left not-menu">
 						<div
 							className="glyphicon glyphicon-unchecked"
-							onClick={this.check}></div>
-						<div className="todo-text">{todo}</div>					<Menu />
+							onClick={this.markDone}></div>
+						<div className="todo-text">{todo}</div>
+
+					</div>
+					<Menu />
 				</blockquote>
 
 
@@ -40,4 +56,16 @@ class IndividualList extends Component {
 	}
 }
 
-export default IndividualList;
+function mapStateToProps(state) {
+	return {
+
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: bindActionCreators(actions, dispatch)
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndividualList);

@@ -21,6 +21,7 @@ class DisplayTodo extends Component {
 						.map((time, index) =>
 						<IndividualList
 							key={index}
+							selectedDay={selectedDay}
 							time={time}
 							todo={selectedDayTodos[time]} />
 					)}

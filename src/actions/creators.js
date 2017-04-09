@@ -5,6 +5,11 @@ export const addToDo = (data) => ({
 	data
 })
 
+export const markDone = (data) => ({
+	type: types.MARK_DONE,
+	data
+})
+
 export const selectDay = (selectedDay) => ({
 	type: types.SELECT_DAY,
 	selectedDay

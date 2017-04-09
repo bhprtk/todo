@@ -32,7 +32,6 @@ class CalendarDay extends Component {
 	render() {
 		const { day } = this.props;
 		const { selectedDay } = this.props.selectedDay;
-		console.log ('selectedDay:', selectedDay)
 		if (moment(day).format('dddd MMMM DD') === moment(selectedDay).format('dddd MMMM DD')){
 			return (
 				<div

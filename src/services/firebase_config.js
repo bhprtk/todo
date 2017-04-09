@@ -20,3 +20,14 @@ export function getTodo(selectedDay) {
 		.then(snap => snap.val())
 	)
 }
+
+export function markDone(data) {
+	const { time, selectedDay, value } = data;
+	const date = moment(selectedDay).format('MM-DD-YYYY');
+	const updates = {};
+	updates[`${date}/${time}/done`] = value;
+	firebase
+		.database()
+		.ref()
+		.update(updates)
+}

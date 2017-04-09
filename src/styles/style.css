@@ -7,8 +7,12 @@
 }
 
 .blockquote {
+	padding-left: 10px;
+}
+
+.not-menu {
 	display: flex;
-	justify-content: space-between;
+	/*justify-content: space-between;*/
 }
 
 #body {
@@ -58,13 +62,14 @@
 }
 
 .todo-text {
-	margin-left: -300px;
 	margin-top: 5px;
+	margin-left: 10px;
 }
 
 .todo-item {
 	margin: 10px;
 	height: 75px;
+	padding: 10px 20px 0 30px !important;
 	cursor: pointer;
 	color: #4C5769;
 	-webkit-transition: 0.5s;
