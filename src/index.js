@@ -25,9 +25,13 @@ firebase
 	.database()
 	.ref()
 	.on('value', snapshot => {
+		// console.log ('snapshot.val():', snapshot.val())
 		store.dispatch({
 			type: types.ON_CHANGE_TODOS,
-			todos: snapshot.val()
+			data: {
+				todos: snapshot.val(),
+				selectedDay: store.getState().selectedDay.toJS().selectedDay
+			}
 		})
 	})
 

@@ -21,7 +21,7 @@ class IndividualList extends Component {
 		const { time } = this.props;
 		const { todo, done } = this.props.todo;
 		// const timeAdded = moment(time).format('h:mm a');
-		console.log ('todo:', todo)
+		// console.log ('todo:', todo)
 		// console.log ('timeAdded:', timeAdded)
 		return (
 			<div

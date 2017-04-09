@@ -10,7 +10,7 @@ class DisplayTodo extends Component {
 	render() {
 		const { selectedDay } = this.props;
 		const { selectedDayTodos } = this.props.selectedDayTodos;
-		console.log ('selectedDayTodos:', selectedDayTodos)
+		// console.log ('selectedDayTodos:', selectedDayTodos)
 		if(selectedDayTodos) {
 			return (
 				<div

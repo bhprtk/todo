@@ -5,10 +5,6 @@ export const addToDo = (data) => ({
 	data
 })
 
-export const onChangeTodos = (todos) => {
-	console.log ('todos:', todos)
-}
-
 export const selectDay = (selectedDay) => ({
 	type: types.SELECT_DAY,
 	selectedDay
