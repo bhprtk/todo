@@ -1,0 +1,56 @@
+.circle-btn {
+	border-radius: 50%;
+}
+
+.menu {
+	border: 2px solid #dddddd;
+	z-index: 1;
+	margin-top: -50px;
+	height: 50px;
+	width: 120px;
+	background: #fff;
+	padding-top: 3px;
+	/*color: #fff;*/
+}
+
+.menu-button {
+	z-index: -1;
+}
+
+.menu-items {
+	display: flex;
+	/*flex-direction: column;*/
+	justify-content: space-around;
+	font-size: 20px;
+}
+
+.delete-button {
+	color: #fff;
+	height: 40px;
+	width: 40px;
+	border-radius: 20px;
+	padding-top: 7px;
+	background: #E57373;
+	-webkit-transition: 0.1s;
+          transition: 0.1s;
+}
+
+.edit-button {
+	color: #fff;
+	height: 40px;
+	width: 40px;
+	border-radius: 20px;
+	padding-top: 7px;
+	background: #66BB6A;
+	-webkit-transition: 0.1s;
+          transition: 0.1s;
+}
+
+.delete-button:hover {
+	-webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+.edit-button:hover {
+	-webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}

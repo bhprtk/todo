@@ -1,7 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import $ from 'jquery';
 import moment from 'moment';
 import Menu from './Menu';
 import * as actions from '../../actions/creators';
@@ -10,15 +9,7 @@ class IndividualList extends Component {
 	constructor(props) {
 		super(props);
 
-		this.check = this.check.bind(this);
 		this.markDone = this.markDone.bind(this);
-	}
-
-	check(e) {
-		$(e.target).toggleClass('glyphicon-unchecked glyphicon-check');
-		const $target = $(e.target).siblings('.todo-text');
-		console.log ('$target:', $target)
-		$target.toggleClass("strike");
 	}
 
 	markDone() {
