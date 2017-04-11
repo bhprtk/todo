@@ -71,7 +71,7 @@ class Calendar extends Component {
 		return (
 			<div className="calendar-container col-md-8">
 				<div
-					className="left animated pulse"
+					className="left"
 					onClick={this.onClickLeft}>
 					<span className="glyphicon glyphicon-menu-left"></span>
 				</div>

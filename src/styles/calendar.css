@@ -36,6 +36,25 @@
 	cursor: pointer;
 }
 
+.glyphicon-menu-left {
+	-webkit-transition: 0.1s;
+					transition: 0.1s;
+}
+
+.glyphicon-menu-left:hover {
+	-webkit-transform: scale(2);
+          transform: scale(2);
+}
+.glyphicon-menu-right {
+	-webkit-transition: 0.1s;
+					transition: 0.1s;
+}
+
+.glyphicon-menu-right:hover {
+	-webkit-transform: scale(2);
+          transform: scale(2);
+}
+
 .right {
 	float: right;
 	height: 75px;

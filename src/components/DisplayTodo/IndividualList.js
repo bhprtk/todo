@@ -23,6 +23,7 @@ class IndividualList extends Component {
 
 	render() {
 		const { time } = this.props;
+		const { selectedDay } = this.props.selectedDay;
 		const { todo, done } = this.props.todo;
 		return (
 			<div
@@ -46,7 +47,10 @@ class IndividualList extends Component {
 							</div>
 						)}
 
-					<Menu />
+					<Menu
+						todo={todo}
+						time={time}
+						selectedDay={selectedDay}/>
 				</blockquote>
 
 

@@ -36,10 +36,14 @@
 
 .glyphicon-unchecked {
 	font-size: 32px;
+	-webkit-transition: 0.5s;
+          transition: 0.5s;
 }
 
 .glyphicon-unchecked:hover {
 	color: #66BB6A;
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
 }
 
 .glyphicon-star {
@@ -72,8 +76,8 @@
 	padding: 10px 20px 0 30px !important;
 	cursor: pointer;
 	color: #4C5769;
-	-webkit-transition: 0.5s;
-          transition: 0.5s;
+	-webkit-transition: 0.2s;
+          transition: 0.2s;
 }
 
 .todo-item:hover{
