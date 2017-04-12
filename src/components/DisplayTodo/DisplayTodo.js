@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import IndividualList from './IndividualList';
+import DeleteTodo from '../DeleteTodo';
 
 class DisplayTodo extends Component {
 	constructor(props) {
@@ -13,18 +14,22 @@ class DisplayTodo extends Component {
 		// console.log ('selectedDayTodos:', selectedDayTodos)
 		if(selectedDayTodos) {
 			return (
-				<div
-					className="col-md-6 col-sm-6 col-xs-6 list-group todo-group">
-					{Object
-						.keys(selectedDayTodos)
-						.sort()
-						.map((time, index) =>
-						<IndividualList
-							key={index}
-							selectedDay={selectedDay}
-							time={time}
-							todo={selectedDayTodos[time]} />
-					)}
+				<div>
+					<div
+						className="col-md-6 col-sm-6 col-xs-6 list-group todo-group">
+						{Object
+							.keys(selectedDayTodos)
+							.sort()
+							.map((time, index) =>
+							<IndividualList
+								key={index}
+								selectedDay={selectedDay}
+								time={time}
+								todo={selectedDayTodos[time]} />
+						)}
+
+					</div>
+
 				</div>
 
 			)

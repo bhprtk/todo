@@ -32,6 +32,7 @@ class AddToDo extends Component {
 			todo: this.state.inputValue,
 			selectedDay
 		});
+		this.setState({ inputValue: '' });
 	}
 
 	star() {
@@ -48,6 +49,7 @@ class AddToDo extends Component {
 						<input
 							className="form-control add-to-do-input"
 							onChange={this.inputChange}
+							value={this.state.inputValue}
 							onSubmit={this.submitTodo}
 							placeholder="Add a to-do..."
 							type="text"

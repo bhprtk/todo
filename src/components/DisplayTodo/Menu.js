@@ -26,7 +26,7 @@ class Menu extends Component {
 
 	render() {
 		const { showMenu } = this.state;
-		const { todo, time, selectedDay } = this.props;
+		const { todo, time, selectedDay, openDeleteDialog } = this.props;
 		let menuItems;
 		if(showMenu) {
 			menuItems = (
@@ -37,7 +37,8 @@ class Menu extends Component {
 					<MenuItems
 						todo={todo}
 						time={time}
-						selectedDay={selectedDay}/>
+						selectedDay={selectedDay}
+						openDeleteDialog={openDeleteDialog}/>
 				</div>
 			)
 		} else {

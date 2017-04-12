@@ -32,6 +32,14 @@
 .glyphicon-check {
 	color: #66BB6A;
 	font-size: 32px;
+	-webkit-transition: 0.5s;
+          transition: 0.5s;
+}
+
+.glyphicon-check:hover {
+	color: #E57373;
+	-webkit-transform: scale(1.2);
+					transform: scale(1.2);
 }
 
 .glyphicon-unchecked {
@@ -43,7 +51,7 @@
 .glyphicon-unchecked:hover {
 	color: #66BB6A;
 	-webkit-transform: scale(1.2);
-	transform: scale(1.2);
+					transform: scale(1.2);
 }
 
 .glyphicon-star {

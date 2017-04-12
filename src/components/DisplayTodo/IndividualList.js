@@ -4,12 +4,27 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import Menu from './Menu';
 import * as actions from '../../actions/creators';
+import DeleteTodo from '../DeleteTodo';
 
 class IndividualList extends Component {
 	constructor(props) {
 		super(props);
 
+		this.state = {
+			openDeleteDialog: false
+		}
+
 		this.markDone = this.markDone.bind(this);
+		this.closeDeleteDialog = this.closeDeleteDialog.bind(this);
+		this.openDeleteDialog = this.openDeleteDialog.bind(this);
+	}
+
+	openDeleteDialog() {
+		this.setState({ openDeleteDialog: true });
+	}
+
+	closeDeleteDialog() {
+		this.setState({ openDeleteDialog: false });
 	}
 
 	markDone() {
@@ -25,6 +40,7 @@ class IndividualList extends Component {
 		const { time } = this.props;
 		const { selectedDay } = this.props.selectedDay;
 		const { todo, done } = this.props.todo;
+		const { openDeleteDialog } = this.state;
 		return (
 			<div
 				className="todo-item list-group-item">
@@ -50,7 +66,14 @@ class IndividualList extends Component {
 					<Menu
 						todo={todo}
 						time={time}
-						selectedDay={selectedDay}/>
+						selectedDay={selectedDay}
+						openDeleteDialog={this.openDeleteDialog}/>
+
+					<DeleteTodo
+						openDeleteDialog={openDeleteDialog}
+						closeDeleteDialog={this.closeDeleteDialog}
+						time={time}
+						selectedDay={selectedDay}  />
 				</blockquote>
 
 

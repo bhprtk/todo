@@ -7,14 +7,25 @@ class MenuItems extends Component {
 	constructor(props) {
 		super(props);
 
+		this.state = {
+			open: false
+		}
+
 		this.deleteTodo = this.deleteTodo.bind(this);
+		this.handleClose = this.handleClose.bind(this);
 
 	}
 
 	deleteTodo() {
-		const { todo, time, selectedDay, actions } = this.props;
+		const { todo, time, selectedDay, actions, openDeleteDialog } = this.props;
 		const data = {todo, time, selectedDay};
-		actions.deleteTodo(data);
+		openDeleteDialog();
+		// this.setState({open: true})
+		// actions.deleteTodo(data);
+	}
+
+	handleClose() {
+		this.setState({open: false});
 	}
 
 	render() {
