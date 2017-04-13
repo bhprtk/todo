@@ -28,13 +28,14 @@ class EditModal extends Component {
 
 	editTodo() {
 		const { inputValue } = this.state;
-		const { selectedDay, actions, time } = this.props;
+		const { selectedDay, actions, time, hideModal } = this.props;
 		const data = {
 			todo: inputValue,
 			selectedDay,
 			time
 		}
-		actions.editTodo(data)
+		actions.editTodo(data);
+		hideModal();
 	}
 
 	render() {

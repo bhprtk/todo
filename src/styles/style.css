@@ -12,6 +12,7 @@
 
 .not-menu {
 	display: flex;
+	position: absolute;
 	/*justify-content: space-between;*/
 }
 
@@ -76,6 +77,8 @@
 .todo-text {
 	margin-top: 5px;
 	margin-left: 10px;
+	/*z-index: -1;*/
+	/*position: absolute;*/
 }
 
 .todo-item {
