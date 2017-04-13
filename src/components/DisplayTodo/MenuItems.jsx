@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import { Modal } from 'react-bootstrap';
 import * as actions from '../../actions/creators';
 
 class MenuItems extends Component {
@@ -12,16 +13,19 @@ class MenuItems extends Component {
 		}
 
 		this.deleteTodo = this.deleteTodo.bind(this);
+		this.editTodo = this.editTodo.bind(this);
 		this.handleClose = this.handleClose.bind(this);
 
 	}
 
 	deleteTodo() {
-		const { todo, time, selectedDay, actions, openDeleteDialog } = this.props;
-		const data = {todo, time, selectedDay};
+		const { openDeleteDialog } = this.props;
 		openDeleteDialog();
-		// this.setState({open: true})
-		// actions.deleteTodo(data);
+	}
+
+	editTodo() {
+		const { openEditModal } = this.props;
+		openEditModal();
 	}
 
 	handleClose() {
@@ -36,7 +40,9 @@ class MenuItems extends Component {
 						onClick={this.deleteTodo}>
 						<i className="glyphicon glyphicon-trash"></i>
 					</span>
-					<span className="edit-button">
+					<span
+						className="edit-button"
+						onClick={this.editTodo}>
 						<i className="glyphicon glyphicon-edit"></i>
 					</span>
 			</div>

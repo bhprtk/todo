@@ -10,6 +10,11 @@ export const deleteTodo = (data) => ({
 	data
 })
 
+export const editTodo = data => ({
+	type: types.EDIT_TODO,
+	data
+})
+
 export const markDone = (data) => ({
 	type: types.MARK_DONE,
 	data

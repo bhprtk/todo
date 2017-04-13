@@ -20,6 +20,16 @@ export function deleteTodo(todo, selectedDay, time) {
 		.remove()
 }
 
+export function editTodo(todo, selectedDay, time) {
+	const day = convertDayToKey(selectedDay);
+	let updates = {};
+	updates[`${day}/${time}/todo`] = todo;
+	firebase
+		.database()
+		.ref()
+		.update(updates)
+}
+
 export function getTodo(selectedDay) {
 	const date = moment(selectedDay).format('MM-DD-YYYY');
 	return (
@@ -34,7 +44,7 @@ export function getTodo(selectedDay) {
 export function markDone(data) {
 	const { time, selectedDay, value } = data;
 	const date = moment(selectedDay).format('MM-DD-YYYY');
-	const updates = {};
+	let updates = {};
 	updates[`${date}/${time}/done`] = value;
 	firebase
 		.database()
