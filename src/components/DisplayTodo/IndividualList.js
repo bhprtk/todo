@@ -6,6 +6,7 @@ import Menu from './Menu';
 import * as actions from '../../actions/creators';
 import DeleteTodo from '../DeleteTodo';
 import EditModal from '../EditModal';
+import TodoText from './TodoText';
 
 class IndividualList extends Component {
 	constructor(props) {
@@ -71,7 +72,9 @@ class IndividualList extends Component {
 									className="glyphicon glyphicon-unchecked"
 									onClick={this.markDone}>
 								</div>
-								<div className="todo-text">{todo}</div>
+								<div className="todo-text">
+									<TodoText todo={todo} />
+								</div>
 							</div>
 						)}
 
