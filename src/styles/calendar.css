@@ -55,6 +55,11 @@
           transform: scale(2);
 }
 
+a.goto-today {
+	cursor: pointer;
+	text-decoration: none !important;
+}
+
 .right {
 	float: right;
 	height: 75px;

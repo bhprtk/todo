@@ -1,3 +1,5 @@
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import moment from 'moment';
 import Slider from 'react-slick';
@@ -5,6 +7,7 @@ import { Carousel } from 'react-bootstrap';
 import { GridList, GridTile } from 'material-ui/GridList';
 import CalendarDay from './CalendarDay';
 import $ from 'jquery';
+import * as actions from '../../actions/creators';
 
 
 class Calendar extends Component {
@@ -18,11 +21,17 @@ class Calendar extends Component {
 
 		this.onClickLeft = this.onClickLeft.bind(this);
 		this.onClickRight = this.onClickRight.bind(this);
+		this.resetCalendar = this.resetCalendar.bind(this);
 		// this.onHover = this.onHover.bind(this);
 
 	}
 
 	componentWillMount() {
+		this.resetCalendar();
+	}
+
+	resetCalendar() {
+		const { actions } = this.props;
 		let days = [];
 		for(let i = -3; i <= 3; i++) {
 			days.push(moment().add(i, 'day').format())
@@ -30,6 +39,7 @@ class Calendar extends Component {
 		this.setState({
 			days
 		})
+		actions.selectDay(moment().format())
 	}
 
 	onClickLeft() {
@@ -91,6 +101,11 @@ class Calendar extends Component {
 					</div>
 
 				</div>
+				<a
+					onClick={this.resetCalendar}
+					className="pull-right goto-today">
+					<i>Go to Today</i>
+				</a>
 
 			</div>
 
@@ -98,6 +113,16 @@ class Calendar extends Component {
 	}
 }
 
+function mapStateToProps(state) {
+	return {
 
+	}
+}
 
-export default Calendar;
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: bindActionCreators(actions, dispatch)
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Calendar);

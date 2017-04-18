@@ -57,7 +57,7 @@ class CalendarDay extends Component {
 						{moment(day).format('dddd')}
 
 					</strong>
-					<p >
+					<p>
 						{moment(day).format('MMMM DD')}
 
 					</p>
