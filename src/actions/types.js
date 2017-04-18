@@ -8,4 +8,5 @@ export default createTypes(`
 	ON_CHANGE_TODOS
 	SELECT_DAY
 	SELECTED_DAY_TODOS
+	SHOW_MORE
 `)

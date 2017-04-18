@@ -5,21 +5,72 @@ class TodoText extends Component {
 		super(props);
 
 		this.state = {
-			todo: ''
+			todo: '',
+			displayTodo: []
 		}
 
+		this.showLess = this.showLess.bind(this);
 		this.showMore = this.showMore.bind(this);
 	}
 
+	componentWillUpdate(nextProps) {
+		const { falsifyResetDisplayTodo } = this.props;
+		// console.log ('nextProps.resetDisplayTodo:', nextProps.resetDisplayTodo)
+		if(nextProps.resetDisplayTodo) {
+			this.setState({displayTodo: []})
+			falsifyResetDisplayTodo();
+		}
+	}
+
+	showLess() {
+		const { resetHeight } = this.props;
+		this.setState({displayTodo: []})
+		resetHeight();
+
+	}
+
 	showMore() {
-		const { todo } = this.props;
-		console.log ('todo:', todo)
-		this.setState({todo})
+		let todo = this.props.todo;
+		const { increaseHeight } = this.props;
+		let displayTodo = [], index = 0;
+		const limit = 48;
+		while(todo.length) {
+			if(todo.length > limit) {
+				let todoText = todo.substring(0, limit);
+				todo = todo.slice(limit);
+				displayTodo.push(
+					<p key={index}>
+						{todoText}
+					</p>
+				)
+				index++;
+			} else {
+				displayTodo.push(
+					<p key={index}>
+						{todo}
+					</p>
+				);
+				todo = '';
+				index++;
+			}
+
+		}
+		displayTodo.push(
+			<a
+				key={index}
+				onClick={this.showLess}>
+				Show Less
+			</a>
+		);
+		this.setState({displayTodo});
+		increaseHeight(displayTodo.length);
 	}
 
 	render() {
 		const limit = 48;
-		if(this.props.todo.length > limit && !this.state.todo) {
+		// const { increaseHeight } = this.props;
+		const { height, displayTodo } = this.state;
+		if(this.props.todo.length > limit && !displayTodo.length) {
 			const { todo } = this.props;
 			let todoText = todo.substring(0, 45);
 			return (
@@ -31,38 +82,12 @@ class TodoText extends Component {
 					</a>
 				</span>
 			)
-		} else if(this.state.todo) {
-			let todo = this.state.todo;
-			console.log ('todo.length:', todo.length)
-
-			let displayTodo = [];
-
-			while(todo.length) {
-				if(todo.length > limit) {
-					let todoText = todo.substring(0, limit);
-					todo = todo.slice(limit);
-					console.log ('todoText:', todoText)
-					console.log ('todo:', todo)
-					displayTodo.push(
-						<p>
-							{todoText}
-						</p>
-					);
-				} else {
-					displayTodo.push(
-						<p>
-							{todo}
-						</p>
-					);
-					todo = '';
-				}
-			}
-			return (
-				<div>
-					{displayTodo}
-
-				</div>
-			)
+		} else if(displayTodo.length) {
+				return (
+					<div id="display-todo">
+						{displayTodo}
+					</div>
+				)
 
 		} else {
 			const { todo } = this.props;

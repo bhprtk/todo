@@ -14,7 +14,9 @@ class IndividualList extends Component {
 
 		this.state = {
 			openDeleteDialog: false,
-			showModal: false
+			showModal: false,
+			height: 75,
+			resetDisplayTodo: false
 		}
 
 		this.markDone = this.markDone.bind(this);
@@ -22,6 +24,31 @@ class IndividualList extends Component {
 		this.openDeleteDialog = this.openDeleteDialog.bind(this);
 		this.openEditModal = this.openEditModal.bind(this);
 		this.hideEditModal = this.hideEditModal.bind(this);
+		this.increaseHeight = this.increaseHeight.bind(this);
+		this.resetHeight = this.resetHeight.bind(this);
+		this.falsifyResetDisplayTodo = this.falsifyResetDisplayTodo.bind(this);
+		this.truthifyResetDisplayTodo = this.truthifyResetDisplayTodo.bind(this);
+	}
+
+	falsifyResetDisplayTodo() {
+		this.setState({
+			resetDisplayTodo: false,
+			height: 75
+		})
+	}
+
+	truthifyResetDisplayTodo() {
+		this.setState({resetDisplayTodo: true});
+	}
+
+	increaseHeight(length) {
+		let height = this.state.height;
+		height += length * 30;
+		this.setState({height})
+	}
+
+	resetHeight() {
+		this.setState({height: 75});
 	}
 
 	openEditModal() {
@@ -53,10 +80,11 @@ class IndividualList extends Component {
 		const { time } = this.props;
 		const { selectedDay } = this.props.selectedDay;
 		const { todo, done } = this.props.todo;
-		const { openDeleteDialog, showModal } = this.state;
+		const { openDeleteDialog, showModal, height } = this.state;
 		return (
 			<div
-				className="todo-item list-group-item">
+				className="todo-item list-group-item"
+				style={{height: height}}>
 				<blockquote className="blockquote row">
 						{done ? (
 							<div className="pull-left not-menu">
@@ -73,7 +101,12 @@ class IndividualList extends Component {
 									onClick={this.markDone}>
 								</div>
 								<div className="todo-text">
-									<TodoText todo={todo} />
+									<TodoText
+										increaseHeight={this.increaseHeight}
+										resetHeight={this.resetHeight}
+										resetDisplayTodo={this.state.resetDisplayTodo}
+										falsifyResetDisplayTodo={this.falsifyResetDisplayTodo}
+										todo={todo} />
 								</div>
 							</div>
 						)}
@@ -96,7 +129,8 @@ class IndividualList extends Component {
 						hideModal={this.hideEditModal}
 						selectedDay={selectedDay}
 						todo={todo}
-						time={time}/>
+						time={time}
+						truthifyResetDisplayTodo={this.truthifyResetDisplayTodo}/>
 
 				</blockquote>
 
