@@ -85,21 +85,21 @@ class IndividualList extends Component {
 			<div
 				className="todo-item list-group-item">
 				<blockquote className="blockquote row">
-					<div className="">
+					<div>
 						{done ? (
 							<div className="not-menu col-xs-11 col-sm-11">
-								<div
+								<span
 									className="glyphicon glyphicon-check"
 									onClick={this.markDone}>
-								</div>
+								</span>
 								<div className="todo-text strike">{todo}</div>
 							</div>
 						) : (
 							<div className="not-menu col-xs-11 col-sm-11">
-								<div
+								<span
 									className="glyphicon glyphicon-unchecked"
 									onClick={this.markDone}>
-								</div>
+								</span>
 								<div className="todo-text">
 									{todo}
 								</div>
