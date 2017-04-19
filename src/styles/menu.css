@@ -12,7 +12,7 @@
 	z-index: 1;
 	margin-top: -5px;
 	margin-right: 5px;
-	height: 50px;
+	/*height: 50px;*/
 	width: 120px;
 	display: flex;
 	text-align: center;
@@ -44,6 +44,7 @@
 	height: 40px;
 	width: 40px;
 	border-radius: 20px;
+	font-size: 20px;
 	margin-right: 20px;
 	margin-left: 10px;
 	padding-top: 7px;
@@ -57,6 +58,7 @@
 	height: 40px;
 	width: 40px;
 	border-radius: 20px;
+	font-size: 20px;
 	padding-top: 7px;
 	background: #66BB6A;
 	-webkit-transition: 0.1s;
