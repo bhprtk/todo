@@ -83,11 +83,11 @@ class IndividualList extends Component {
 		const { openDeleteDialog, showModal, height } = this.state;
 		return (
 			<div
-				className="todo-item list-group-item"
-				style={{height: height}}>
+				className="todo-item list-group-item">
 				<blockquote className="blockquote row">
+					<div className="">
 						{done ? (
-							<div className="pull-left not-menu">
+							<div className="not-menu col-xs-11 col-sm-11">
 								<div
 									className="glyphicon glyphicon-check"
 									onClick={this.markDone}>
@@ -95,28 +95,28 @@ class IndividualList extends Component {
 								<div className="todo-text strike">{todo}</div>
 							</div>
 						) : (
-							<div className="pull-left not-menu">
+							<div className="not-menu col-xs-11 col-sm-11">
 								<div
 									className="glyphicon glyphicon-unchecked"
 									onClick={this.markDone}>
 								</div>
 								<div className="todo-text">
-									<TodoText
-										increaseHeight={this.increaseHeight}
-										resetHeight={this.resetHeight}
-										resetDisplayTodo={this.state.resetDisplayTodo}
-										falsifyResetDisplayTodo={this.falsifyResetDisplayTodo}
-										todo={todo} />
+									{todo}
 								</div>
 							</div>
 						)}
 
-					<Menu
-						todo={todo}
-						time={time}
-						selectedDay={selectedDay}
-						openDeleteDialog={this.openDeleteDialog}
-						openEditModal={this.openEditModal}/>
+					</div>
+
+					<div className="col-xs-1 col-sm-1">
+						<Menu
+							todo={todo}
+							time={time}
+							selectedDay={selectedDay}
+							openDeleteDialog={this.openDeleteDialog}
+							openEditModal={this.openEditModal}/>
+					</div>
+
 
 					<DeleteTodo
 						openDeleteDialog={openDeleteDialog}
@@ -153,3 +153,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(IndividualList);
+
+
+// <TodoText
+// 	increaseHeight={this.increaseHeight}
+// 	resetHeight={this.resetHeight}
+// 	resetDisplayTodo={this.state.resetDisplayTodo}
+// 	falsifyResetDisplayTodo={this.falsifyResetDisplayTodo}
+// 	todo={todo} />

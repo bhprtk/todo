@@ -17,8 +17,14 @@
 
 .not-menu {
 	display: flex;
-	position: absolute;
+	/*position: absolute;*/
+	/*width: 100px;*/
 	/*justify-content: space-between;*/
+}
+
+.not-menu-div {
+	width: 500px;
+	word-wrap: break-word;
 }
 
 #body {
@@ -82,13 +88,16 @@
 .todo-text {
 	margin-top: 5px;
 	margin-left: 10px;
+	width: inherit;
+	word-wrap: break-word;
+	overflow: auto;
 	/*z-index: -1;*/
 	/*position: absolute;*/
 }
 
 .todo-item {
 	margin: 10px;
-	/*height: 75px;*/
+	min-height: 75px;
 	padding: 10px 20px 0 30px !important;
 	cursor: pointer;
 	color: #4C5769;

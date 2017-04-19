@@ -68,11 +68,13 @@ class TodoText extends Component {
 
 	render() {
 		const limit = 48;
+		// console.log ('this.props.todo.length:', this.props.todo.length)
 		// const { increaseHeight } = this.props;
 		const { height, displayTodo } = this.state;
 		if(this.props.todo.length > limit && !displayTodo.length) {
 			const { todo } = this.props;
 			let todoText = todo.substring(0, 45);
+			console.log ('todoText:', todoText)
 			return (
 				<span>
 					{todoText}

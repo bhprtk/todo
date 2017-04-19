@@ -48,7 +48,7 @@ class Menu extends Component {
 			)
 		}
 		return (
-			<div className="pull-right menu-div">
+			<div className="menu-div">
 				{menuItems}
 				<div
 					className="hamburger"
