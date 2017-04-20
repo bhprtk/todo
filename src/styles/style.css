@@ -15,6 +15,10 @@
 	overflow: auto;
 }*/
 
+/*.navbar {
+	position: fixed;
+}*/
+
 .not-menu {
 	display: flex;
 	/*position: absolute;*/
