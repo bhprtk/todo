@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card } from 'material-ui/Card';
 import ProgressBar from './ProgressBar';
 
 class DisplayProfile extends Component {
@@ -9,17 +10,25 @@ class DisplayProfile extends Component {
 	render() {
 		const { displayName, email, photoURL } = this.props.currentUser;
 		return (
-			<div className="col-md-6 col-sm-6 col-xs-6">
-				<div>
-					<img
-						className="profile-pic img-circle"
-						src={photoURL} />
+			<Card className="card">
+				<div
+					className="top-div">
+					<div className="text-center profile-pic-div">
+						<img
+							className="profile-pic img-circle"
+							src={photoURL} />
+
+					</div>
 				</div>
-				<div className="text-center">
-					<strong>{displayName}</strong>
+				<div className="bottom-div">
+					<div className="text-center displayName-div">
+						<h1>{displayName}</h1>
+
+					</div>
 				</div>
 				<ProgressBar />
-			</div>
+
+			</Card>
 		)
 	}
 }

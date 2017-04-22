@@ -1,4 +1,29 @@
+.bottom-div {
+	height: 150px;
+}
+
+.card {
+	margin-top: 20px;
+	/*position: relative;*/
+	/*padding: 20px;*/
+}
+
+.displayName-div {
+	color: #4C5769;
+	margin-top: 60px;
+}
+
 .profile-pic {
-	height: 100px;
-	width: 100px;
+	height: 150px;
+	/*position: absolute;*/
+	width: 150px;
+}
+
+.profile-pic-div {
+	padding-top: 50px;
+}
+
+.top-div {
+	background: #4C5769;
+	height: 150px;
 }

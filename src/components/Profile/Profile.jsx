@@ -12,7 +12,7 @@ class Profile extends Component {
 		const { currentUser } = this.props;
 		if(Object.keys(currentUser).length) {
 			return (
-				<div>
+				<div className="col-md-6 col-sm-6 col-xs-6">
 					<DisplayProfile
 						currentUser={currentUser}/>
 				</div>
