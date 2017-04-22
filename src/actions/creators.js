@@ -15,6 +15,11 @@ export const editTodo = data => ({
 	data
 })
 
+export const loginUser = data => ({
+	type: types.LOGIN_USER,
+	data
+})
+
 export const markDone = (data) => ({
 	type: types.MARK_DONE,
 	data

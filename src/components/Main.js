@@ -3,6 +3,7 @@ import AddToDo from './AddToDo'
 import Calendar from './Calendar/Calendar';
 import DisplayTodo from './DisplayTodo/DisplayTodo';
 import NavBar from './NavBar';
+import Profile from './Profile/Profile';
 
 class Main extends Component {
 	render() {
@@ -13,6 +14,7 @@ class Main extends Component {
 					className="row"
 					style={{paddingTop: 100}}>
 					<DisplayTodo />
+					<Profile />
 				</div>
 
 			</div>
@@ -20,4 +22,5 @@ class Main extends Component {
 	}
 }
 
-export default Main;
+
+export default (Main);

@@ -34,7 +34,24 @@ firebase
 				selectedDay: store.getState().selectedDay.toJS().selectedDay
 			}
 		})
+	});
+
+firebase
+	.auth()
+	.onAuthStateChanged(user => {
+		if(user) {
+			store.dispatch({
+				type: types.LOGIN_USER,
+				user
+			})
+		} else {
+			store.dispatch({
+				type: types.LOGOUT_USER,
+				user: {}
+			})
+		}
 	})
+
 
 const App = () => (
 	<MuiThemeProvider>
