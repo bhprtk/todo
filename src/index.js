@@ -10,10 +10,11 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 import './services/FirebaseInit.js';
-import './styles/style.css';
-import './styles/calendar.css';
 import './styles/animate.css';
+import './styles/calendar.css';
 import './styles/menu.css';
+import './styles/style.css';
+import './styles/profile.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/react-slick/dist/react-slick.min.js';
 import '../node_modules/slick-carousel/slick/slick.css';
