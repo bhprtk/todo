@@ -11,11 +11,7 @@ class DisplayProfile extends Component {
 		const { displayName, email, photoURL } = this.props.currentUser;
 		return (
 			<Card
-				className="card"
-				style={{
-					position: 'fixed',
-					width: 'inherit'
-				}}>
+				className="card">
 				<div
 					className="top-div">
 					<div className="text-center profile-pic-div">

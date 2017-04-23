@@ -35,7 +35,10 @@ class DisplayTodo extends Component {
 			)
 		} else {
 			return (
-				<div></div>
+				<div
+					className="col-md-6 col-sm-6 col-xs-6">
+
+				</div>
 			)
 		}
 	}

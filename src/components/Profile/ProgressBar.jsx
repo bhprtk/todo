@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ProgressBarTitle from './ProgressBarTitle'
 
 class ProgressBar extends Component {
 	constructor(props) {
@@ -7,39 +8,57 @@ class ProgressBar extends Component {
 	}
 
 	render() {
-		const { selectedDayTodos } = this.props;
-		const todos = Object.keys(selectedDayTodos);
-		const totalTodos = todos.length;
-		let todosDone = 0;
-		todos.forEach(time => {
-			if(selectedDayTodos[time].done) {
-				todosDone++;
-			}
-		})
+		const { selectedDay, selectedDayTodos } = this.props;
+		console.log ('selectedDayTodos:', selectedDayTodos)
+		if(selectedDayTodos) {
+			const todos = Object.keys(selectedDayTodos);
 
-		const percentage = Math.floor((todosDone / totalTodos) * 100);
-		const displayPercentage = String(percentage) + "%";
-		return (
-			<div className="progress-bar-div">
+			const totalTodos = todos.length;
+			let todosDone = 0;
 
-				<h3 className="text-center">Today's Progress</h3>
+			todos.forEach(time => {
+				if(selectedDayTodos[time].done) {
+					todosDone++;
+				}
+			})
 
-				<div className="progress">
-					<div
-						className="progress-bar"
-						style={{width: displayPercentage}}>
-						{displayPercentage}
+			const percentage = Math.floor((todosDone / totalTodos) * 100);
+			const displayPercentage = String(percentage) + "%";
+			return (
+				<div className="progress-bar-div">
+					<ProgressBarTitle
+						selectedDay={selectedDay}
+						todosDone={todosDone}
+						totalTodos={totalTodos}
+						/>
+					<div className="progress">
+						<div
+							className="progress-bar"
+							style={{width: displayPercentage}}>
+							<span>{displayPercentage}</span>
+						</div>
 					</div>
+
+
+				</div>
+			)
+
+		} else {
+			console.log('here')
+			return (
+				<div>
+					what
 				</div>
 
-			</div>
-		)
+			)
+		}
 	}
 }
 
 function mapStateToProps(state) {
 	return {
-		selectedDayTodos: state.selectedDayTodos.toJS().selectedDayTodos
+		selectedDayTodos: state.selectedDayTodos.toJS().selectedDayTodos,
+		selectedDay: state.selectedDay.toJS().selectedDay
 	}
 }
 
