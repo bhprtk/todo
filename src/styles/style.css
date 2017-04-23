@@ -42,14 +42,14 @@
 
 .glyphicon-check {
 	height: 50px;
-	color: #66BB6A;
+	color: #83c6b0;
 	font-size: 32px;
 	-webkit-transition: 0.5s;
           transition: 0.5s;
 }
 
 .glyphicon-check:hover {
-	color: #E57373;
+	color: #83c6b0;
 	-webkit-transform: scale(1.2);
 					transform: scale(1.2);
 }
@@ -62,7 +62,7 @@
 }
 
 .glyphicon-unchecked:hover {
-	color: #66BB6A;
+	color: #83c6b0;
 	-webkit-transform: scale(1.2);
 					transform: scale(1.2);
 }

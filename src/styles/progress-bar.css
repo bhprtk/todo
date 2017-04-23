@@ -1,0 +1,14 @@
+.progress {
+	height: 40px !important;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.progress-bar {
+	background: #83c6b0 !important;
+
+}
+
+.progress-bar-div {
+	/*background: red;*/
+}

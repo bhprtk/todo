@@ -15,6 +15,7 @@ import './styles/calendar.css';
 import './styles/menu.css';
 import './styles/style.css';
 import './styles/profile.css';
+import './styles/progress-bar.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/react-slick/dist/react-slick.min.js';
 import '../node_modules/slick-carousel/slick/slick.css';

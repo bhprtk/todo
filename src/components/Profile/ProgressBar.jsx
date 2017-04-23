@@ -20,11 +20,18 @@ class ProgressBar extends Component {
 		const percentage = Math.floor((todosDone / totalTodos) * 100);
 		const displayPercentage = String(percentage) + "%";
 		return (
-			<div className="progress">
-			  <div
-					className="progress-bar progress-bar-success"
-					style={{width: displayPercentage}}>
-			  </div>
+			<div className="progress-bar-div">
+
+				<h3 className="text-center">Today's Progress</h3>
+
+				<div className="progress">
+					<div
+						className="progress-bar"
+						style={{width: displayPercentage}}>
+						{displayPercentage}
+					</div>
+				</div>
+
 			</div>
 		)
 	}
