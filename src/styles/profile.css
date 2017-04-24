@@ -6,8 +6,10 @@
 
 .card {
 	margin-top: 20px;
-	/*position: relative;*/
-	/*padding: 20px;*/
+	position: fixed;
+	width: 38.5%;
+	/*right: 0;*/
+
 }
 
 .displayName-div {
