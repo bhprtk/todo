@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import IndividualList from './IndividualList';
 import DeleteTodo from '../DeleteTodo';
+import NoTodo from './NoTodo';
 
 class DisplayTodo extends Component {
 	constructor(props) {
@@ -35,10 +36,7 @@ class DisplayTodo extends Component {
 			)
 		} else {
 			return (
-				<div
-					className="col-md-6 col-sm-6 col-xs-6">
-
-				</div>
+				<NoTodo />
 			)
 		}
 	}
