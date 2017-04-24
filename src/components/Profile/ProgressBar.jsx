@@ -9,49 +9,50 @@ class ProgressBar extends Component {
 
 	render() {
 		const { selectedDay, selectedDayTodos } = this.props;
-		console.log ('selectedDayTodos:', selectedDayTodos)
+		let todos;
+
 		if(selectedDayTodos) {
-			const todos = Object.keys(selectedDayTodos);
+			todos = Object.keys(selectedDayTodos);
+		} else {
+			todos = [];
+		}
 
-			const totalTodos = todos.length;
-			let todosDone = 0;
+		const totalTodos = todos.length;
+		let percentage, displayPercentage;
+		let todosDone = 0;
 
+		if(totalTodos) {
 			todos.forEach(time => {
 				if(selectedDayTodos[time].done) {
 					todosDone++;
 				}
 			})
-
-			const percentage = Math.floor((todosDone / totalTodos) * 100);
-			const displayPercentage = String(percentage) + "%";
-			return (
-				<div className="progress-bar-div">
-					<ProgressBarTitle
-						selectedDay={selectedDay}
-						todosDone={todosDone}
-						totalTodos={totalTodos}
-						/>
-					<div className="progress">
-						<div
-							className="progress-bar"
-							style={{width: displayPercentage}}>
-							<span>{displayPercentage}</span>
-						</div>
-					</div>
-
-
-				</div>
-			)
-
+			percentage = Math.floor((todosDone / totalTodos) * 100);
+			displayPercentage = String(percentage) + "%";
 		} else {
-			console.log('here')
-			return (
-				<div>
-					what
+			displayPercentage = "0%";
+		}
+
+
+
+		return (
+			<div className="progress-bar-div">
+				<ProgressBarTitle
+					selectedDay={selectedDay}
+					todosDone={todosDone}
+					totalTodos={totalTodos}
+					/>
+				<div className="progress">
+					<div
+						className="progress-bar"
+						style={{width: displayPercentage}}>
+						<span>{displayPercentage}</span>
+					</div>
 				</div>
 
-			)
-		}
+
+			</div>
+		)
 	}
 }
 

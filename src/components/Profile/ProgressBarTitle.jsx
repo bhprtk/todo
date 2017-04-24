@@ -21,11 +21,15 @@ class ProgressBarTitle extends Component {
 		}
 
 		let displayTasksDone;
-		if(todosDone === totalTodos) {
-			displayTasksDone = 'All tasks done'
+		if(todosDone && totalTodos) {
+			if(todosDone === totalTodos) {
+				displayTasksDone = 'All tasks done'
+			} else {
+				let tasksLeft = totalTodos - todosDone;
+				displayTasksDone = `${tasksLeft} of ${totalTodos} tasks left`
+			}
 		} else {
-			let tasksLeft = totalTodos - todosDone;
-			displayTasksDone = `${tasksLeft} of ${totalTodos} tasks left`
+			displayTasksDone = `No tasks added yet.`
 		}
 
 		return (

@@ -8,10 +8,8 @@ class NoTodo extends Component {
 
 	render() {
 		const { selectedDay } = this.props;
-		console.log ('selectedDay:', selectedDay)
 		let text;
 		let day = moment(selectedDay).format('dddd');
-		console.log ('day:', day)
 		if(day === moment().format('dddd')) {
 			text = 'Add a task for today.'
 		} else {
