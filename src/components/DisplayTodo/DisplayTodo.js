@@ -36,7 +36,8 @@ class DisplayTodo extends Component {
 			)
 		} else {
 			return (
-				<NoTodo />
+				<NoTodo
+					selectedDay={selectedDay}/>
 			)
 		}
 	}
@@ -46,7 +47,7 @@ class DisplayTodo extends Component {
 function mapStateToProps(state) {
 	return {
 		selectedDayTodos: state.selectedDayTodos.toJS(),
-		selectedDay: state.selectedDay.toJS()
+		selectedDay: state.selectedDay.toJS().selectedDay
 	}
 }
 

@@ -78,7 +78,7 @@ class IndividualList extends Component {
 
 	render() {
 		const { time } = this.props;
-		const { selectedDay } = this.props.selectedDay;
+		const { selectedDay } = this.props;
 		const { todo, done } = this.props.todo;
 		const { openDeleteDialog, showModal, height } = this.state;
 		return (
