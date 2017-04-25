@@ -28,6 +28,19 @@
 	width: 140px;
 }
 
+.fa-angle-double-left {
+	margin-right: 10px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.fa-angle-double-right {
+	margin-left: 10px;
+	font-weight: bold;
+	font-size: 20px;
+	/*margin-top: 10px;*/
+}
+
 .left {
 	float: left;
 	height: 75px;
@@ -71,7 +84,10 @@ a.goto-today {
 .today-button {
 	background: transparent;
 	border: 2px solid #4C5769;
+	/*border: none;*/
 	color: #4C5769;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 }

@@ -79,13 +79,39 @@ class Calendar extends Component {
 		const { days, startIndex } = this.state;
 		const { selectedDay } = this.props;
 		const today = moment().format();
-		console.log ('selectedDay:', selectedDay)
-		if(moment(selectedDay).isBefore(today)) {
-			console.log('<<')
-		} else if(moment(selectedDay).isAfter(today)) {
-			console.log('>>')
-		} else if(moment(selectedDay).isSame(today)){
-			console.log('nothing')
+		let todayButton;
+		if(moment(selectedDay).isBefore(today, 'day')) {
+			todayButton = (
+				<button
+					className="today-button pull-right"
+					onClick={this.resetCalendar}>
+					<strong>
+						Today
+					</strong>
+					<i className="fa fa-angle-double-right"></i>
+				</button>
+			)
+		} else if(moment(selectedDay).isAfter(today, 'day')) {
+			todayButton = (
+				<button
+					className="today-button pull-right"
+					onClick={this.resetCalendar}>
+					<i className="fa fa-angle-double-left"></i>
+					<strong>
+						Today
+					</strong>
+				</button>
+			)
+		} else if(moment(selectedDay).isSame(today, 'day')){
+			todayButton = (
+				<button
+					className="today-button pull-right"
+					onClick={this.resetCalendar}>
+					<strong>
+						Today
+					</strong>
+				</button>
+			)
 		}
 
 
@@ -113,13 +139,7 @@ class Calendar extends Component {
 
 				</div>
 
-
-				<button
-					className="today-button pull-right"
-					onClick={this.resetCalendar}>
-					<strong>Today</strong>
-				</button>
-
+				{todayButton}
 			</div>
 
 		)

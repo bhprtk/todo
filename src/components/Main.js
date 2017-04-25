@@ -12,7 +12,7 @@ class Main extends Component {
 				<NavBar />
 				<div
 					className="row"
-					style={{paddingTop: 100}}>
+					style={{paddingTop: 120}}>
 					<DisplayTodo />
 					<Profile />
 				</div>
