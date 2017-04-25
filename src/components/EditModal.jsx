@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { Modal } from 'react-bootstrap';
 import * as actions from '../actions/creators';
+import $ from 'jquery';
 
 class EditModal extends Component {
 	constructor(props) {
@@ -14,7 +15,7 @@ class EditModal extends Component {
 
 		this.changeInputValue = this.changeInputValue.bind(this);
 		this.editTodo = this.editTodo.bind(this);
-
+		this.star = this.star.bind(this);
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -26,7 +27,8 @@ class EditModal extends Component {
 		this.setState({ inputValue: value });
 	}
 
-	editTodo() {
+	editTodo(e) {
+		e.preventDefault();
 		const { inputValue } = this.state;
 		const {
 			selectedDay,
@@ -45,6 +47,10 @@ class EditModal extends Component {
 		truthifyResetDisplayTodo();
 	}
 
+	star() {
+		$('.star').toggleClass('glyphicon-star-empty glyphicon-star')
+	}
+
 	render() {
 		const { inputValue } = this.state;
 		const {
@@ -56,17 +62,41 @@ class EditModal extends Component {
 		} = this.props;
 		return (
 			<Modal show={showModal} onHide={hideModal}>
-	      <Modal.Header>
+	      <Modal.Header
+					style={{height: 50}}>
 	        <Modal.Title></Modal.Title>
 	      </Modal.Header>
 
 	      <Modal.Body>
-	        <input
-						type="text"
-						className="form-control"
-						value={inputValue}
-						onChange={this.changeInputValue}
-						autoFocus/>
+					<form
+						onSubmit={this.editTodo}>
+						<div className="input-group">
+							<input
+								className="form-control"
+								onChange={this.changeInputValue}
+								value={inputValue}
+								onSubmit={this.submitTodo}
+								type="text"
+								style={{
+									height: 50,
+									fontSize: 20
+								}}
+								autoFocus
+								/>
+							<div
+								className="input-group-addon star-div"
+								style={{
+									background: '#fff',
+								}}>
+								<span
+									className="glyphicon glyphicon-star-empty star"
+									onClick={this.star}>
+								</span>
+
+							</div>
+
+						</div>
+					</form>
 	      </Modal.Body>
 
 	      <Modal.Footer>
@@ -81,7 +111,7 @@ class EditModal extends Component {
 					<button
 						className="btn btn-default"
 						style={{
-							background: '#66BB6A',
+							background: '#83c6b0',
 							color: '#fff'
 						}}
 						onClick={this.editTodo}>

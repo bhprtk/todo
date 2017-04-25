@@ -54,7 +54,8 @@ class AddToDo extends Component {
 							placeholder="Add a to-do..."
 							type="text"
 							style={{
-								height: 50
+								height: 50,
+								fontSize: 20
 							}}/>
 						<div
 							className="input-group-addon star-div"

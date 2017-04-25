@@ -77,6 +77,17 @@ class Calendar extends Component {
 
 	render() {
 		const { days, startIndex } = this.state;
+		const { selectedDay } = this.props;
+		const today = moment().format();
+		console.log ('selectedDay:', selectedDay)
+		if(moment(selectedDay).isBefore(today)) {
+			console.log('<<')
+		} else if(moment(selectedDay).isAfter(today)) {
+			console.log('>>')
+		} else if(moment(selectedDay).isSame(today)){
+			console.log('nothing')
+		}
+
 
 		return (
 			<div className="calendar-container col-md-8">
@@ -101,11 +112,13 @@ class Calendar extends Component {
 					</div>
 
 				</div>
-				<a
-					onClick={this.resetCalendar}
-					className="pull-right goto-today">
-					<i>Go to Today</i>
-				</a>
+
+
+				<button
+					className="today-button pull-right"
+					onClick={this.resetCalendar}>
+					<strong>Today</strong>
+				</button>
 
 			</div>
 
@@ -115,7 +128,7 @@ class Calendar extends Component {
 
 function mapStateToProps(state) {
 	return {
-
+		selectedDay: state.selectedDay.toJS().selectedDay
 	}
 }
 
