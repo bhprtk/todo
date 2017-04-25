@@ -17,6 +17,14 @@
 	padding-top: 50px;
 }
 
+.fa-sign-out {
+	color: #4C5769;
+	cursor: pointer;
+	font-size: 18px;
+	padding-top: 5px;
+	padding-right: 5px;
+}
+
 .profile-pic {
 	height: 150px;
 	/*position: absolute;*/

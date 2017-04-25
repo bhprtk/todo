@@ -20,6 +20,10 @@ export const loginUser = data => ({
 	data
 })
 
+export const logout = () => ({
+	type: types.LOGOUT_USER
+})
+
 export const markDone = (data) => ({
 	type: types.MARK_DONE,
 	data

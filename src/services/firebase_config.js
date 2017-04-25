@@ -41,6 +41,14 @@ export function getTodo(selectedDay) {
 	)
 }
 
+export function logout() {
+	firebase
+		.auth()
+		.signOut()
+		.then(() => console.log ('logout successful'))
+		.catch(error => console.log ('error:', error))
+}
+
 export function markDone(data) {
 	const { time, selectedDay, value } = data;
 	const date = moment(selectedDay).format('MM-DD-YYYY');
