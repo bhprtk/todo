@@ -12,8 +12,9 @@ class LogoutDialog extends Component {
 	}
 
 	logout() {
-		const { actions } = this.props;
+		const { actions, closeLogoutDialog } = this.props;
 		actions.logout();
+		closeLogoutDialog();
 	}
 
 	render() {

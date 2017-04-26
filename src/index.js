@@ -47,9 +47,9 @@ firebase
 				user
 			})
 		} else {
+			console.log('no user')
 			store.dispatch({
-				type: types.LOGOUT_USER,
-				user: {}
+				type: types.NO_USER
 			})
 		}
 	})

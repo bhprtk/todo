@@ -1,5 +1,5 @@
 import { createReducer } from 'reduxsauce';
-import { Map } from 'immutable';
+import { Map, fromJS } from 'immutable';
 import types from '../actions/types';
 
 const INITIAL_STATE = Map();
@@ -10,13 +10,16 @@ export function loginUser(state = INITIAL_STATE, action) {
 	return state.merge(currentUser);
 }
 
-export function logoutUser(state = INITIAL_STATE, actions) {
-	return state;
+export function noUser(state = INITIAL_STATE, action) {
+	let currentUser = {
+		displayName: ''
+	}
+	return state.merge(currentUser);
 }
 
 const ACTION_HANDLERS = {
 	[types.LOGIN_USER]: loginUser,
-	[types.LOGOUT_USER]: logoutUser
+	[types.NO_USER]: noUser
 }
 
 export default createReducer(INITIAL_STATE, ACTION_HANDLERS);

@@ -9,16 +9,7 @@ class Login extends Component {
 	constructor(props) {
 		super(props);
 
-		this.logout = this.logout.bind(this);
 		this.signIn = this.signIn.bind(this);
-	}
-
-	logout() {
-		firebase
-			.auth()
-			.signOut()
-			.then(() => console.log ('logout successful'))
-			.catch(error => console.log ('error:', error))
 	}
 
 	signIn() {
@@ -35,7 +26,6 @@ class Login extends Component {
 	render() {
 		return (
 			<div
-				className="col-md-6 col-sm-6 col-xs-6"
 				style={{
 					paddingTop: 50,
 					paddingLeft: 50
@@ -53,20 +43,6 @@ class Login extends Component {
 						height: 40
 					}}>
 					Google
-				</button>
-				<button
-					onClick={this.logout}
-					style={{
-						background: '#fff',
-						borderStyle: 'solid',
-						borderWidth: 2,
-						borderColor: '#c36349',
-						color: '#c36349',
-						fontWeight: 'bold',
-						width: 100,
-						height: 40
-					}}>
-					Logout
 				</button>
 			</div>
 		)

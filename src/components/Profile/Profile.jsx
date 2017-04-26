@@ -10,7 +10,7 @@ class Profile extends Component {
 
 	render() {
 		const { currentUser } = this.props;
-		if(Object.keys(currentUser).length) {
+		if(currentUser.displayName) {
 			return (
 				<div
 					className="col-md-6 col-sm-6 col-xs-6">
@@ -20,7 +20,7 @@ class Profile extends Component {
 			)
 		} else {
 			return (
-				<div>
+				<div className="col-md-6 col-sm-6 col-xs-6">
 					<Login />
 				</div>
 			)
