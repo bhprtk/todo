@@ -50,10 +50,10 @@ export function logout() {
 }
 
 export function markDone(data) {
-	const { time, selectedDay, value } = data;
+	const { time, selectedDay, value, uid } = data;
 	const date = moment(selectedDay).format('MM-DD-YYYY');
 	let updates = {};
-	updates[`${date}/${time}/done`] = value;
+	updates[`${uid}/${date}/${time}/done`] = value;
 	firebase
 		.database()
 		.ref()

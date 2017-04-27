@@ -71,8 +71,9 @@ class IndividualList extends Component {
 		const { time, actions } = this.props;
 		const { done } = this.props.todo;
 		const { selectedDay } = this.props.selectedDay;
+		const { uid } = this.props.currentUser;
 		let value = !done;
-		const data = {time, selectedDay, value}
+		const data = {time, selectedDay, value, uid}
 		actions.markDone(data)
 	}
 
@@ -142,7 +143,7 @@ class IndividualList extends Component {
 
 function mapStateToProps(state) {
 	return {
-
+		currentUser: state.currentUser.toJS()
 	}
 }
 
