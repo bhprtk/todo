@@ -5,8 +5,9 @@ import types from '../actions/types';
 const INITIAL_STATE = Map();
 
 export function loginUser(state = INITIAL_STATE, action) {
-	const { displayName, email, photoURL } = action.user;
-	let currentUser = { displayName, email, photoURL };
+	const { displayName, email, photoURL, uid } = action.user;
+	let currentUser = { displayName, email, photoURL, uid };
+	console.log ('currentUser:', currentUser)
 	return state.merge(currentUser);
 }
 

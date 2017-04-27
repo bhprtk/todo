@@ -31,7 +31,7 @@ class Calendar extends Component {
 	}
 
 	resetCalendar() {
-		const { actions } = this.props;
+		const { actions, currentUser } = this.props;
 		let days = [];
 		for(let i = -3; i <= 3; i++) {
 			days.push(moment().add(i, 'day').format())
@@ -39,7 +39,11 @@ class Calendar extends Component {
 		this.setState({
 			days
 		})
-		actions.selectDay(moment().format())
+		const data = {
+			selectedDay: moment().format(),
+			uid: currentUser.uid
+		}
+		actions.selectDay(data)
 	}
 
 	onClickLeft() {
@@ -114,40 +118,53 @@ class Calendar extends Component {
 			)
 		}
 
+		const { currentUser } = this.props;
+		if(currentUser.displayName) {
+			return (
+				<div className="calendar-container col-md-8">
+					<div
+						className="left"
+						onClick={this.onClickLeft}>
+						<span className="glyphicon glyphicon-menu-left"></span>
+					</div>
+					<div
+						className="right"
+						onClick={this.onClickRight}>
+						<span className="glyphicon glyphicon-menu-right"></span>
+					</div>
 
-		return (
-			<div className="calendar-container col-md-8">
-				<div
-					className="left"
-					onClick={this.onClickLeft}>
-					<span className="glyphicon glyphicon-menu-left"></span>
-				</div>
-				<div
-					className="right"
-					onClick={this.onClickRight}>
-					<span className="glyphicon glyphicon-menu-right"></span>
-				</div>
-
-				<div className="list-container">
+					<div className="list-container">
 
 
-					<div className="list">
+						<div className="list">
 
-						{days.map((day, index) => <CalendarDay day={day} key={index} />)}
+							{days.map((day, index) => (
+								<CalendarDay
+									currentUser={currentUser}
+									day={day}
+									key={index} />
+							))}
+
+						</div>
 
 					</div>
 
+					{todayButton}
 				</div>
 
-				{todayButton}
-			</div>
+			)
 
-		)
+		} else {
+			return (
+				<div>loading calendar</div>
+			)
+		}
 	}
 }
 
 function mapStateToProps(state) {
 	return {
+		currentUser: state.currentUser.toJS(),
 		selectedDay: state.selectedDay.toJS().selectedDay
 	}
 }

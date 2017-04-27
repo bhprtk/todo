@@ -5,16 +5,17 @@ import { getTodo } from '../services/firebase_config';
 
 export default () => {
 
-	function* worker(value) {
-		const results = yield call(getTodo, value);
+	function* worker(data) {
+		const { selectedDay, uid } = data;
+		const results = yield call(getTodo, selectedDay, uid);
 		yield put(actions.selectedDayTodos(results));
 	}
 
 	function* watcher() {
 		while(true) {
 			const input = yield take(types.SELECT_DAY);
-			const { selectedDay } = input;
-			yield call(worker, selectedDay);
+			const { data } = input;
+			yield call(worker, data);
 		}
 	}
 

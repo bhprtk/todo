@@ -21,17 +21,25 @@ class CalendarDay extends Component {
 
 	componentWillMount() {
 		const { actions } = this.props;
-		actions.selectDay(moment().format());
+		const { uid } = this.props.currentUser;
+		const selectedDay = moment().format();
+		let data = { selectedDay, uid }
+
+		actions.selectDay(data);
 	}
 
 	selectDay() {
 		const { day, actions } = this.props;
-		actions.selectDay(day);
+		const { uid } = this.props.currentUser;
+		let data = { selectedDay: day, uid }
+		// console.log ('currentUser:', currentUser)
+		actions.selectDay(data);
 	}
 
 	render() {
-		const { day } = this.props;
+		const { day, currentUser } = this.props;
 		const { selectedDay } = this.props.selectedDay;
+		// console.log ('currentUser:', currentUser)
 		if (moment(day).format('dddd MMMM DD') === moment(selectedDay).format('dddd MMMM DD')){
 			return (
 				<div

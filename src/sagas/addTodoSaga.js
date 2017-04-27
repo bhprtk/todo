@@ -5,12 +5,12 @@ import { addTodo } from '../services/firebase_config';
 export default () => {
 
 	function* worker(data) {
-		const { todo, selectedDay } = data;
+		const { todo, selectedDay, uid } = data;
 		const newData = {
 			todo,
 			done: false
 		}
-		addTodo(newData, selectedDay);
+		addTodo(newData, selectedDay, uid);
 	}
 
 	function* watcher() {

@@ -27,10 +27,12 @@ class AddToDo extends Component {
 	submitTodo(e) {
 		e.preventDefault();
 		const { actions } = this.props;
+		const { uid } = this.props.currentUser;
 		const { selectedDay } = this.props.selectedDay;
 		actions.addToDo({
 			todo: this.state.inputValue,
-			selectedDay
+			selectedDay,
+			uid
 		});
 		this.setState({ inputValue: '' });
 	}
@@ -78,6 +80,7 @@ class AddToDo extends Component {
 
 function mapStateToProps(state) {
 	return {
+		currentUser: state.currentUser.toJS(),
 		todos: state.todos.toJS(),
 		selectedDay: state.selectedDay.toJS()
 	}

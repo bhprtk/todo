@@ -3,12 +3,12 @@ import moment from 'moment';
 
 const convertDayToKey = day => moment(day).format('MM-DD-YYYY');
 
-export function addTodo(todo, selectedDay) {
+export function addTodo(todo, selectedDay, uid) {
 	const day = moment(selectedDay).format('MM-DD-YYYY');
 	const now = moment().format('HH:mm:ss');
 	firebase
 		.database()
-		.ref(`${day}/${now}`)
+		.ref(`${uid}/${day}/${now}`)
 		.set(todo)
 }
 
@@ -30,12 +30,12 @@ export function editTodo(todo, selectedDay, time) {
 		.update(updates)
 }
 
-export function getTodo(selectedDay) {
+export function getTodo(selectedDay, uid) {
 	const date = moment(selectedDay).format('MM-DD-YYYY');
 	return (
 		firebase
 		.database()
-		.ref(`${date}`)
+		.ref(`${uid}/${date}`)
 		.once('value')
 		.then(snap => snap.val())
 	)

@@ -29,9 +29,9 @@ export const markDone = (data) => ({
 	data
 })
 
-export const selectDay = (selectedDay) => ({
+export const selectDay = data => ({
 	type: types.SELECT_DAY,
-	selectedDay
+	data
 })
 
 export const selectedDayTodos = (todos) => ({
