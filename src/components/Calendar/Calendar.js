@@ -164,7 +164,6 @@ class Calendar extends Component {
 
 function mapStateToProps(state) {
 	return {
-		currentUser: state.currentUser.toJS(),
 		selectedDay: state.selectedDay.toJS().selectedDay
 	}
 }
