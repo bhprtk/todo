@@ -20,10 +20,10 @@ export function deleteTodo(todo, selectedDay, time, uid) {
 		.remove()
 }
 
-export function editTodo(todo, selectedDay, time) {
+export function editTodo(todo, selectedDay, time, uid) {
 	const day = convertDayToKey(selectedDay);
 	let updates = {};
-	updates[`${day}/${time}/todo`] = todo;
+	updates[`${uid}/${day}/${time}/todo`] = todo;
 	firebase
 		.database()
 		.ref()

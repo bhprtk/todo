@@ -30,6 +30,7 @@ class EditModal extends Component {
 	editTodo(e) {
 		e.preventDefault();
 		const { inputValue } = this.state;
+		const { uid } = this.props.currentUser;
 		const {
 			selectedDay,
 			actions,
@@ -40,7 +41,8 @@ class EditModal extends Component {
 		const data = {
 			todo: inputValue,
 			selectedDay,
-			time
+			time,
+			uid
 		}
 		actions.editTodo(data);
 		hideModal();
@@ -127,7 +129,7 @@ class EditModal extends Component {
 
 function mapStateToProps(state) {
 	return {
-
+		currentUser: state.currentUser.toJS()
 	}
 }
 

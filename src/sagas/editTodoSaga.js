@@ -5,8 +5,8 @@ import { editTodo } from '../services/firebase_config';
 export default () => {
 
 	function* worker(data) {
-		const { todo, selectedDay, time } = data;
-		editTodo(todo, selectedDay, time);
+		const { todo, selectedDay, time, uid } = data;
+		editTodo(todo, selectedDay, time, uid);
 	}
 
 	function* watcher() {
