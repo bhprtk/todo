@@ -9,27 +9,17 @@ class NavBar extends Component {
 	}
 
 	render() {
-		const { currentUser } = this.props;
-		if(Object.keys(currentUser).length) {
-			return (
-				<nav
-					className="row navbar navbar-default navbar-fixed-top">
-					<div
-						className="container">
-						<AddToDo />
-						<Calendar
-							currentUser={currentUser}/>
+		return (
+			<nav
+				className="row navbar navbar-default navbar-fixed-top">
+				<div
+					className="container">
+					<AddToDo />
+					<Calendar />
 
-					</div>
-				</nav>
-			)
-		} else {
-			return (
-				<div>
-					loading
 				</div>
-			)
-		}
+			</nav>
+		)
 	}
 }
 

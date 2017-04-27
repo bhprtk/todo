@@ -8,7 +8,7 @@ const INITIAL_STATE = Map({
 });
 
 export function selectDay(state = INITIAL_STATE, action) {
-	const selectedDay = fromJS({selectedDay: action.data.selectedDay});
+	const selectedDay = fromJS({selectedDay: action.selectedDay});
 	return state.merge(selectedDay);
 }
 
