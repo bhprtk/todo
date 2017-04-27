@@ -12,11 +12,11 @@ export function addTodo(todo, selectedDay, uid) {
 		.set(todo)
 }
 
-export function deleteTodo(todo, selectedDay, time) {
+export function deleteTodo(todo, selectedDay, time, uid) {
 	const day = convertDayToKey(selectedDay);
 	firebase
 		.database()
-		.ref(`${day}/${time}`)
+		.ref(`${uid}/${day}/${time}`)
 		.remove()
 }
 

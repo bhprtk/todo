@@ -5,8 +5,8 @@ import { deleteTodo } from '../services/firebase_config';
 export default () => {
 
 	function* worker(data) {
-		const { todo, selectedDay, time } = data;
-		deleteTodo(todo, selectedDay, time);
+		const { todo, selectedDay, time, uid } = data;
+		deleteTodo(todo, selectedDay, time, uid);
 	}
 
 	function* watcher() {

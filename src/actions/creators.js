@@ -5,7 +5,7 @@ export const addToDo = (data) => ({
 	data
 })
 
-export const deleteTodo = (data) => ({
+export const deleteTodo = data => ({
 	type: types.DELETE_TODO,
 	data
 })

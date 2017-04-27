@@ -21,7 +21,8 @@ class DeleteTodo extends Component {
 
 	deleteTodo() {
 		const { time, selectedDay, actions, closeDeleteDialog } = this.props;
-		const data = { time, selectedDay };
+		const { uid } = this.props.currentUser;
+		const data = { time, selectedDay, uid };
 		actions.deleteTodo(data);
 		closeDeleteDialog();
 	}
@@ -65,7 +66,7 @@ class DeleteTodo extends Component {
 
 function mapStateToProps(state) {
 	return {
-
+		currentUser: state.currentUser.toJS()
 	}
 }
 
