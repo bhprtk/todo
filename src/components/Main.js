@@ -5,7 +5,7 @@ import Calendar from './Calendar/Calendar';
 import DisplayTodo from './DisplayTodo/DisplayTodo';
 import NavBar from './NavBar';
 import Profile from './Profile/Profile';
-import DisplayTempTodo from './Temp/DisplayTempTodo';
+import TempMain from './Temp/TempMain';
 
 class Main extends Component {
 	render() {
@@ -14,7 +14,7 @@ class Main extends Component {
 		if(currentUser.displayName) {
 			displayTodo = <DisplayTodo />
 		} else {
-			displayTodo = <DisplayTempTodo />
+			displayTodo = <TempMain />
 		}
 		return (
 			<div className="container">

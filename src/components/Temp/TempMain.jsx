@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import DisplayTempTodos from './DisplayTempTodos';
 
-class DisplayTempTodo extends Component {
+class TempMain extends Component {
 	constructor(props) {
 		super(props);
 
@@ -11,15 +12,10 @@ class DisplayTempTodo extends Component {
 	}
 
 	componentWillReceiveProps(newProps) {
-		console.log ('newProps.tempTodos:', newProps.tempTodos)
 		let tempTodos = this.state.tempTodos;
 		const date = Object.keys(newProps.tempTodos)[0];
-		// console.log ('date:', date)
-		// console.log ('tempTodos:', tempTodos)
 		if(date) {
-			// console.log ('newProps.tempTodos[date]:', newProps.tempTodos[date])
 			const time = Object.keys(newProps.tempTodos[date])[0];
-			console.log ('time:', time)
 			if(!tempTodos[date]) {
 				tempTodos[date] = newProps.tempTodos[date]
 			} else {
@@ -27,28 +23,41 @@ class DisplayTempTodo extends Component {
 			}
 			this.setState({
 				tempTodos
-			})
-			// console.log ('tempTodos:', tempTodos)
-
+			});
 		}
 	}
 
 	render() {
-		// const { tempTodos } = this.props;
+		const { selectedDay } = this.props;
 		const { tempTodos } = this.state;
 		console.log ('tempTodos:', tempTodos)
-		return (
-			<div className="col-md-6 col-sm-6 col-xs-6">
-				DisplayTempTodo
-			</div>
-		)
+
+		if(Object.keys(tempTodos).length) {
+			console.log('here')
+			return (
+				<div className="col-md-6 col-sm-6 col-xs-6">
+					<DisplayTempTodos
+						tempTodos={tempTodos}
+						selectedDay={selectedDay}/>
+				</div>
+			)
+		}
+		else {
+			return (
+				<div>
+					loading
+				</div>
+
+			)
+		}
 	}
 }
 
 function mapStateToProps(state) {
 	return {
+		selectedDayTodos: state.selectedDayTodos.toJS(),
 		tempTodos: state.tempTodos.toJS()
 	}
 }
 
-export default connect(mapStateToProps)(DisplayTempTodo);
+export default connect(mapStateToProps)(TempMain);

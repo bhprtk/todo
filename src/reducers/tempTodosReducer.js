@@ -8,12 +8,10 @@ const INITIAL_STATE = Map();
 export function addTodoTemp(state = INITIAL_STATE, action) {
 	const { data } = action;
 	const day = moment(data.selectedDay).format('MM-DD-YYYY');
-	// console.log ('day:', day)
 	const now = moment().format('HH:mm:ss');
 	let tempTodos = {};
 	tempTodos[day] = {};
 	tempTodos[day][now] = data.newData;
-	// console.log ('tempTodos:', tempTodos)
 	return state.merge(tempTodos);
 }
 
