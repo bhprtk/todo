@@ -1,5 +1,6 @@
 import { take, call, put } from 'redux-saga/effects';
 import types from '../actions/types';
+import { addTodoTemp } from '../actions/tempActions';
 import { addTodo } from '../services/firebase_config';
 
 export default () => {
@@ -10,7 +11,11 @@ export default () => {
 			todo,
 			done: false
 		}
-		addTodo(newData, selectedDay, uid);
+		if(uid) {
+			addTodo(newData, selectedDay, uid);
+		} else {
+			yield put(addTodoTemp({ newData, selectedDay }))
+		}
 	}
 
 	function* watcher() {

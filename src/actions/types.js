@@ -2,6 +2,7 @@ import { createTypes } from 'reduxsauce';
 
 export default createTypes(`
 	ADD_TODO
+	ADD_TODO_TEMP
 	DELETE_TODO
 	EDIT_TODO
 	LOGIN_USER
