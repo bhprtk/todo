@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import IndividualList from '../DisplayTodo/IndividualList';
+import NoTodo from '../DisplayTodo/NoTodo';
 
 class DisplayTempTodos extends Component {
 	constructor(props) {
@@ -10,14 +11,15 @@ class DisplayTempTodos extends Component {
 	render() {
 		const { tempTodos } = this.props;
 		let selectedDay = this.props.selectedDay;
+		console.log ('selectedDay:', selectedDay)
 		const day = moment(selectedDay).format('MM-DD-YYYY');
 
 		console.log ('tempTodos:', tempTodos)
-		if(tempTodos) {
+		if(tempTodos[day]) {
 			return (
 				<div>
 					<div
-						className="list-group todo-group">
+						className="col-md-6 col-sm-6 col-xs-6 list-group todo-group">
 						{Object
 							.keys(tempTodos[day])
 							.sort()
@@ -36,12 +38,11 @@ class DisplayTempTodos extends Component {
 			)
 		} else {
 			return (
-				<div></div>
+				<NoTodo
+					selectedDay={selectedDay}/>
 			)
 		}
 	}
 }
 
-// <NoTodo
-// 	selectedDay={selectedDay}/>
 export default DisplayTempTodos;

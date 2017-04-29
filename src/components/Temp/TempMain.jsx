@@ -30,23 +30,18 @@ class TempMain extends Component {
 	render() {
 		const { selectedDay } = this.props;
 		const { tempTodos } = this.state;
-		console.log ('tempTodos:', tempTodos)
 
 		if(Object.keys(tempTodos).length) {
 			console.log('here')
 			return (
-				<div className="col-md-6 col-sm-6 col-xs-6">
-					<DisplayTempTodos
-						tempTodos={tempTodos}
-						selectedDay={selectedDay}/>
-				</div>
+				<DisplayTempTodos
+					tempTodos={tempTodos}
+					selectedDay={selectedDay}/>
 			)
 		}
 		else {
 			return (
-				<div>
-					loading
-				</div>
+				<div></div>
 
 			)
 		}
@@ -55,6 +50,7 @@ class TempMain extends Component {
 
 function mapStateToProps(state) {
 	return {
+		selectedDay: state.selectedDay.toJS().selectedDay,
 		selectedDayTodos: state.selectedDayTodos.toJS(),
 		tempTodos: state.tempTodos.toJS()
 	}
