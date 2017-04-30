@@ -40,7 +40,12 @@ class Calendar extends Component {
 		// 	selectedDay: moment().format(),
 		// 	// uid: currentUser.uid
 		// }
-		actions.selectDay(moment().format())
+
+			actions.selectDay({
+				selectedDay: moment().format(),
+				currentUser
+			})
+
 	}
 
 	onClickLeft() {

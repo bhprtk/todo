@@ -29,12 +29,12 @@ class CalendarDay extends Component {
 	}
 
 	selectDay() {
-		const { day, actions } = this.props;
+		const { day, actions, currentUser } = this.props;
 		// const { uid } = this.props.currentUser;
 		// console.log ('uid:', uid)
 		// let data = { selectedDay: day, uid }
 		// console.log ('currentUser:', currentUser)
-		actions.selectDay(day);
+		actions.selectDay({selectedDay: day, currentUser});
 	}
 
 	render() {
@@ -80,6 +80,7 @@ class CalendarDay extends Component {
 
 function mapStateToProps(state) {
 	return {
+		currentUser: state.currentUser.toJS(),
 		selectedDay: state.selectedDay.toJS().selectedDay
 	}
 }

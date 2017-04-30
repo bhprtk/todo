@@ -6,6 +6,12 @@ import { getTodo } from '../services/firebase_config';
 export default () => {
 
 	function* worker(data) {
+		console.log ('data:', data)
+		const { currentUser } = data;
+		console.log ('currentUser:', currentUser)
+		if(!currentUser.displayName) {
+			console.log('true true')
+		}
 		// const { selectedDay, uid } = data;
 		// const results = yield call(getTodo, selectedDay, uid);
 		// yield put(actions.selectedDayTodos(results));

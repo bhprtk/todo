@@ -2,6 +2,7 @@ import { take, call, put } from 'redux-saga/effects';
 import types from '../actions/types';
 import { addTodoTemp } from '../actions/tempActions';
 import { addTodo } from '../services/firebase_config';
+import { addTodoStorage } from '../services/sessionStorage_config';
 
 export default () => {
 
@@ -14,7 +15,8 @@ export default () => {
 		if(uid) {
 			addTodo(newData, selectedDay, uid);
 		} else {
-			yield put(addTodoTemp({ newData, selectedDay }))
+			// yield put(addTodoTemp({ newData, selectedDay }))
+			addTodoStorage(newData, selectedDay)
 		}
 	}
 

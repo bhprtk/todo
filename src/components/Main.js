@@ -11,19 +11,21 @@ class Main extends Component {
 	render() {
 		const { currentUser } = this.props;
 		let displayTodo;
-		if(currentUser.displayName) {
-			displayTodo = <DisplayTodo />
-		} else {
-			displayTodo = <TempMain />
-		}
+		// if(currentUser.displayName) {
+		// 	displayTodo = <DisplayTodo />
+		// } else {
+		// 	displayTodo = <TempMain />
+		// }
 		return (
 			<div className="container">
 				<NavBar />
 				<div
 					className="row"
 					style={{paddingTop: 120}}>
-					{displayTodo}
+
+					<DisplayTodo />
 					<Profile />
+
 				</div>
 
 			</div>

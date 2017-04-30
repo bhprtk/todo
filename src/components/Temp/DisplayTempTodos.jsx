@@ -9,12 +9,9 @@ class DisplayTempTodos extends Component {
 	}
 
 	render() {
-		const { tempTodos } = this.props;
+		const { tempTodos, markDone } = this.props;
 		let selectedDay = this.props.selectedDay;
-		console.log ('selectedDay:', selectedDay)
 		const day = moment(selectedDay).format('MM-DD-YYYY');
-
-		console.log ('tempTodos:', tempTodos)
 		if(tempTodos[day]) {
 			return (
 				<div>
@@ -26,6 +23,7 @@ class DisplayTempTodos extends Component {
 							.map((time, index) =>
 							<IndividualList
 								key={index}
+								markDone={markDone}
 								selectedDay={selectedDay}
 								time={time}
 								todo={tempTodos[day][time]} />
