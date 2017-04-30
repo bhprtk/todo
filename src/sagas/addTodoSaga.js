@@ -3,6 +3,7 @@ import types from '../actions/types';
 import { addTodoTemp } from '../actions/tempActions';
 import { addTodo } from '../services/firebase_config';
 import { addTodoStorage } from '../services/sessionStorage_config';
+import * as actions from '../actions/creators';
 
 export default () => {
 
@@ -15,7 +16,8 @@ export default () => {
 		if(uid) {
 			addTodo(newData, selectedDay, uid);
 		} else {
-			addTodoStorage(newData, selectedDay)
+			const results = addTodoStorage(newData, selectedDay)
+			yield put(actions.selectedDayTodos(results));
 		}
 	}
 
