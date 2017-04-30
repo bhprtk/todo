@@ -21,6 +21,7 @@ export default () => {
 		while(true) {
 			const input = yield take(types.SELECT_DAY);
 			const { data } = input;
+			console.log ('data:', data)
 			yield call(worker, data);
 		}
 	}

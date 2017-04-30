@@ -26,3 +26,12 @@ export function getTodoStorage(selectedDay) {
 	let results = JSON.parse(sessionStorage.getItem('todo'));
 	return results[day];
 }
+
+export function markDoneStorage(data) {
+	const { time, selectedDay, value } = data;
+	const day = convertDayToKey(selectedDay);
+	let storage = JSON.parse(sessionStorage.getItem('todo'));
+	storage[day][time].done = value
+	sessionStorage.setItem('todo', JSON.stringify(storage));
+	return storage[day];
+}
