@@ -2,19 +2,19 @@ import { take, call, put } from 'redux-saga/effects';
 import types from '../actions/types';
 import * as actions from '../actions/creators';
 import { getTodo } from '../services/firebase_config';
+import { getTodoStorage } from '../services/sessionStorage_config';
 
 export default () => {
 
 	function* worker(data) {
-		console.log ('data:', data)
-		const { currentUser } = data;
-		console.log ('currentUser:', currentUser)
+		const { currentUser, selectedDay } = data;
+		let results;
 		if(!currentUser.displayName) {
-			console.log('true true')
+			results = getTodoStorage(selectedDay);
+		} else {
+			results = getTodo(selectedDay, currentUser.uid);
 		}
-		// const { selectedDay, uid } = data;
-		// const results = yield call(getTodo, selectedDay, uid);
-		// yield put(actions.selectedDayTodos(results));
+		yield put(actions.selectedDayTodos(results));
 	}
 
 	function* watcher() {

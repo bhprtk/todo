@@ -30,13 +30,15 @@ firebase
 	.on('value', snapshot => {
 		const uid = store.getState().currentUser.toJS().uid;
 		const todos = snapshot.val()[uid];
-		store.dispatch({
-			type: types.ON_CHANGE_TODOS,
-			data: {
-				todos,
-				selectedDay: store.getState().selectedDay.toJS().selectedDay
-			}
-		})
+		if(todos) {
+			store.dispatch({
+				type: types.ON_CHANGE_TODOS,
+				data: {
+					todos,
+					selectedDay: store.getState().selectedDay.toJS().selectedDay
+				}
+			})		
+		}
 	});
 
 firebase

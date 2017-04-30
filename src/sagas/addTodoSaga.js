@@ -15,7 +15,6 @@ export default () => {
 		if(uid) {
 			addTodo(newData, selectedDay, uid);
 		} else {
-			// yield put(addTodoTemp({ newData, selectedDay }))
 			addTodoStorage(newData, selectedDay)
 		}
 	}

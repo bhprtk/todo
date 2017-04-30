@@ -41,10 +41,10 @@ class Calendar extends Component {
 		// 	// uid: currentUser.uid
 		// }
 
-			actions.selectDay({
-				selectedDay: moment().format(),
-				currentUser
-			})
+		actions.selectDay({
+			selectedDay: moment().format(),
+			currentUser
+		})
 
 	}
 
