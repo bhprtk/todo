@@ -8,7 +8,6 @@ const INITIAL_STATE = Map({
 });
 
 export function selectedDayTodos(state = INITIAL_STATE, action) {
-	console.log('in selectedDayTodos')
 	const selectedDayTodos = fromJS({selectedDayTodos: action.todos})
 	return state.merge(selectedDayTodos);
 }

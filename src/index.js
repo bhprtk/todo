@@ -49,25 +49,14 @@ firebase
 			store.dispatch({
 				type: types.LOGIN_USER,
 				data: {
-					currentUser: user,
-					// selectedDay: store.getState().selectedDay.toJS().selectedDay
+					user,
+					selectedDay: store.getState().selectedDay.toJS().selectedDay
 				}
 			})
-			const selectedDay = store.getState().selectedDay.toJS().selectedDay;
-			const day = moment(selectedDay).format('MM-DD-YYYY');
-			firebase
-				.database()
-				.ref(`${user.uid}/${day}`)
-				.once('value')
-				.then(snap => {
-					store.dispatch({
-						type: types.SELECTED_DAY_TODOS,
-						todos: snap.val()
-					})
-				})
 		} else {
 			store.dispatch({
-				type: types.NO_USER
+				type: types.NO_USER,
+				selectedDay: store.getState().selectedDay.toJS().selectedDay
 			})
 		}
 	})

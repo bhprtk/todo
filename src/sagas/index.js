@@ -6,6 +6,7 @@ import getTodo from './getTodoSaga';
 import loginUser from './loginUserSaga';
 import logout from './logoutSaga';
 import markDone from './markDoneSaga';
+import noUser from './noUserSaga';
 
 export default function* root() {
 	yield fork(addTodo().watcher);
@@ -15,4 +16,5 @@ export default function* root() {
 	yield fork(loginUser().watcher);
 	yield fork(logout().watcher);
 	yield fork(markDone().watcher);
+	yield fork(noUser().watcher);
 }

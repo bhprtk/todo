@@ -6,16 +6,10 @@ import { getTodo } from '../services/firebase_config';
 export default () => {
 
 	function* worker(data) {
-		const { currentUser, selectedDay } = data;
-		console.log('in loginUserSaga')
-		getTodo(selectedDay, currentUser.uid)
-			.then(function(res) {
-				(function* (todos) {
-					yield put(actions.selectedDayTodos(todos))
-				})(res)
-			})
-			// .then(res => put(actions.selectedDayTodos(res)))
-			.catch(err => console.log ('err:', err))
+		const { user, selectedDay } = data;
+		const { uid } = user;
+		let results = yield call(getTodo, selectedDay, uid)
+		yield put(actions.selectedDayTodos(results));
 	}
 
 	function* watcher() {
