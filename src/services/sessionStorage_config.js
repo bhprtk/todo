@@ -17,6 +17,15 @@ export function addTodoStorage(todo, selectedDay) {
 	return storage[day];
 }
 
+export function editTodoStorage(todo, selectedDay, time) {
+	const day = convertDayToKey(selectedDay);
+	let storage = JSON.parse(sessionStorage.getItem('todo'));
+	storage[day][time].todo = todo;
+	// console.log('storage after', storage)
+	sessionStorage.setItem('todo', JSON.stringify(storage));
+	return storage[day];
+}
+
 export function getTodoStorage(selectedDay) {
 	const day = convertDayToKey(selectedDay);
 	if(!sessionStorage.length) {
@@ -31,9 +40,6 @@ export function markDoneStorage(data) {
 	const { time, selectedDay, value } = data;
 	const day = convertDayToKey(selectedDay);
 	let storage = JSON.parse(sessionStorage.getItem('todo'));
-	console.log ('storage:', storage)
-	console.log ('day:', day)
-	console.log ('time:', time)
 	storage[day][time].done = value
 	sessionStorage.setItem('todo', JSON.stringify(storage));
 	return storage[day];
