@@ -21,7 +21,7 @@ class ProgressBarTitle extends Component {
 		}
 
 		let displayTasksDone;
-		if(todosDone && totalTodos) {
+		if(totalTodos) {
 			if(todosDone === totalTodos) {
 				displayTasksDone = 'All tasks done'
 			} else {
