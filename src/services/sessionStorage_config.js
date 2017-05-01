@@ -17,11 +17,18 @@ export function addTodoStorage(todo, selectedDay) {
 	return storage[day];
 }
 
+export function deleteTodoStorage(todo, selectedDay, time) {
+	const day = convertDayToKey(selectedDay);
+	let storage = JSON.parse(sessionStorage.getItem('todo'));
+	delete storage[day][time];
+	sessionStorage.setItem('todo', JSON.stringify(storage));
+	return storage[day];
+}
+
 export function editTodoStorage(todo, selectedDay, time) {
 	const day = convertDayToKey(selectedDay);
 	let storage = JSON.parse(sessionStorage.getItem('todo'));
 	storage[day][time].todo = todo;
-	// console.log('storage after', storage)
 	sessionStorage.setItem('todo', JSON.stringify(storage));
 	return storage[day];
 }

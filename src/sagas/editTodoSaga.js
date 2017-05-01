@@ -12,7 +12,6 @@ export default () => {
 			editTodo(todo, selectedDay, time, uid);
 		} else {
 			let results = editTodoStorage(todo, selectedDay, time);
-			console.log ('results:', results)
 			yield put(actions.selectedDayTodos(results));
 		}
 	}

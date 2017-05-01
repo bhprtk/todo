@@ -21,8 +21,8 @@ class DeleteTodo extends Component {
 
 	deleteTodo() {
 		const { time, selectedDay, actions, closeDeleteDialog } = this.props;
-		const { uid } = this.props.currentUser;
-		const data = { time, selectedDay, uid };
+		const { uid, displayName } = this.props.currentUser;
+		const data = { time, selectedDay, uid, displayName };
 		actions.deleteTodo(data);
 		closeDeleteDialog();
 	}
