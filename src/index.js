@@ -4,6 +4,7 @@ import configureStore from './store';
 import { Provider } from 'react-redux';
 import Main from './components/Main';
 import firebase from 'firebase';
+import moment from 'moment';
 import types from './actions/types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -37,7 +38,7 @@ firebase
 					todos,
 					selectedDay: store.getState().selectedDay.toJS().selectedDay
 				}
-			})		
+			})
 		}
 	});
 
@@ -47,10 +48,24 @@ firebase
 		if(user) {
 			store.dispatch({
 				type: types.LOGIN_USER,
-				user
+				data: {
+					currentUser: user,
+					// selectedDay: store.getState().selectedDay.toJS().selectedDay
+				}
 			})
+			const selectedDay = store.getState().selectedDay.toJS().selectedDay;
+			const day = moment(selectedDay).format('MM-DD-YYYY');
+			firebase
+				.database()
+				.ref(`${user.uid}/${day}`)
+				.once('value')
+				.then(snap => {
+					store.dispatch({
+						type: types.SELECTED_DAY_TODOS,
+						todos: snap.val()
+					})
+				})
 		} else {
-			console.log('no user')
 			store.dispatch({
 				type: types.NO_USER
 			})

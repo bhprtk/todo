@@ -32,13 +32,15 @@ export function editTodo(todo, selectedDay, time, uid) {
 
 export function getTodo(selectedDay, uid) {
 	const date = moment(selectedDay).format('MM-DD-YYYY');
+	let data;
 	return (
 		firebase
-		.database()
-		.ref(`${uid}/${date}`)
-		.once('value')
-		.then(snap => snap.val())
-	)
+			.database()
+			.ref(`${uid}/${date}`)
+			.once('value')
+			.then(snap => snap.val())
+			// console.log ('data:', data)
+		)
 }
 
 export function logout() {

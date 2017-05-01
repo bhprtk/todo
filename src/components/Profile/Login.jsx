@@ -19,8 +19,6 @@ class Login extends Component {
 			.auth()
 			.signInWithPopup(provider)
 			.then(result => actions.loginUser(result))
-			.catch(error => console.log ('error:', error));
-
 	}
 
 	render() {
