@@ -14,7 +14,7 @@ export default () => {
 		while(true) {
 			const input = yield take(types.MARK_DONE);
 			const { data } = input;
-			if(data.uid) {
+			if(data.displayName) {
 				yield call(worker, data);
 			} else {
 				const results = markDoneStorage(data);

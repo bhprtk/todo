@@ -70,9 +70,9 @@ class IndividualList extends Component {
 	markDone() {
 		const { actions, selectedDay, time } = this.props;
 		const { done } = this.props.todo;
-		const { uid } = this.props.currentUser;
+		const { uid, displayName } = this.props.currentUser;
 		let value = !done;
-		const data = {time, selectedDay, value, uid}
+		const data = {time, selectedDay, value, uid, displayName}
 		actions.markDone(data)
 	}
 
