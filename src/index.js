@@ -15,6 +15,7 @@ import './styles/animate.css';
 import './styles/bootstrap-social.css';
 import './styles/calendar.css';
 import './styles/menu.css';
+import './styles/login.css';
 import './styles/style.css';
 import './styles/profile.css';
 import './styles/progress-bar.css';

@@ -34,18 +34,45 @@ class Login extends Component {
 	render() {
 		return (
 			<div>
-				<h3 className="text-center">Sign in to save your todos forever.</h3>
-				<div className="text-center">
-					<button
-						className="btn btn-default"
-						onClick={this.signIn}>
-						Google
-					</button>
-					<button
-						className="btn btn-default"
-						onClick={this.facebookSignIn}>
-						Facebook
-					</button>
+				<div
+					className="panel panel-info">
+					<div className="panel-body">
+						<p>
+							<strong className="text-center info">
+								Your data is being saved on our temporary storage
+								and will be erased when you close your browser tab.
+							</strong>
+						</p>
+
+					</div>
+
+				</div>
+
+
+				<div className="text-center panel panel-default">
+					<div className="panel-body">
+						<p>
+							<strong className="text-center login">
+								Feel free to sign in to use our full storage services
+								for no cost!!!
+							</strong>
+
+						</p>
+						<hr/>
+						<button
+							className="btn btn-social btn-google"
+							onClick={this.signIn}>
+							<span className="fa fa-google"></span>
+							Google
+						</button>
+						<button
+							className="btn btn-social btn-facebook"
+							onClick={this.facebookSignIn}>
+							<span className="fa fa-facebook"></span>
+							Facebook
+						</button>
+
+					</div>
 
 				</div>
 
