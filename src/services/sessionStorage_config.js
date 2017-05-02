@@ -20,9 +20,17 @@ export function addTodoStorage(todo, selectedDay) {
 export function deleteTodoStorage(todo, selectedDay, time) {
 	const day = convertDayToKey(selectedDay);
 	let storage = JSON.parse(sessionStorage.getItem('todo'));
-	delete storage[day][time];
+	let selectedDayTodos = storage[day];
+	delete selectedDayTodos[time];
+	if(!Object.keys(selectedDayTodos).length) {
+		delete storage[day];
+	}
 	sessionStorage.setItem('todo', JSON.stringify(storage));
-	return storage[day];
+	if(storage[day]) {
+		return storage[day];
+	} else {
+		return storage;
+	}
 }
 
 export function editTodoStorage(todo, selectedDay, time) {

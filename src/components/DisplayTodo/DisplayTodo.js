@@ -11,41 +11,42 @@ class DisplayTodo extends Component {
 
 	render() {
 		const { selectedDay } = this.props;
-		const { selectedDayTodos } = this.props.selectedDayTodos;
+		const { selectedDayTodos } = this.props;
 		if(selectedDayTodos) {
-			return (
-				<div>
-					<div
-						className="col-md-6 col-sm-6 col-xs-6 list-group todo-group">
-						{Object
-							.keys(selectedDayTodos)
-							.sort()
-							.map((time, index) =>
-							<IndividualList
-								key={index}
-								selectedDay={selectedDay}
-								time={time}
-								todo={selectedDayTodos[time]} />
-						)}
+			if(Object.keys(selectedDayTodos).length) {
+				return (
+					<div>
+						<div
+							className="col-md-6 col-sm-6 col-xs-6 list-group todo-group">
+							{Object
+								.keys(selectedDayTodos)
+								.sort()
+								.map((time, index) =>
+								<IndividualList
+									key={index}
+									selectedDay={selectedDay}
+									time={time}
+									todo={selectedDayTodos[time]} />
+							)}
+
+						</div>
 
 					</div>
+				)
 
-				</div>
-
-			)
-		} else {
-			return (
-				<NoTodo
-					selectedDay={selectedDay}/>
-			)
+			}
 		}
+		return (
+			<NoTodo
+				selectedDay={selectedDay}/>
+		)
 	}
 
 }
 
 function mapStateToProps(state) {
 	return {
-		selectedDayTodos: state.selectedDayTodos.toJS(),
+		selectedDayTodos: state.selectedDayTodos.toJS().selectedDayTodos,
 		selectedDay: state.selectedDay.toJS().selectedDay
 	}
 }
