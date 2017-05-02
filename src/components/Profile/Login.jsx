@@ -9,10 +9,11 @@ class Login extends Component {
 	constructor(props) {
 		super(props);
 
-		this.signIn = this.signIn.bind(this);
+		this.facebookSignIn = this.facebookSignIn.bind(this);
+		this.googleSignIn = this.googleSignIn.bind(this);
 	}
 
-	signIn() {
+	googleSignIn() {
 		const { actions } = this.props;
 		const provider = new firebase.auth.GoogleAuthProvider();
 		firebase
@@ -21,27 +22,33 @@ class Login extends Component {
 			.then(result => actions.loginUser(result))
 	}
 
+	facebookSignIn() {
+		console.log('facebook')
+		const provider = new firebase.auth.FacebookAuthProvider();
+		firebase
+			.auth()
+			.signInWithPopup(provider)
+			.then(result => actions.loginUser(result))
+	}
+
 	render() {
 		return (
-			<div
-				style={{
-					paddingTop: 50,
-					paddingLeft: 50
-				}}>
-				<button
-					onClick={this.signIn}
-					style={{
-						background: '#fff',
-						borderStyle: 'solid',
-						borderWidth: 2,
-						borderColor: '#c36349',
-						color: '#c36349',
-						fontWeight: 'bold',
-						width: 100,
-						height: 40
-					}}>
-					Google
-				</button>
+			<div>
+				<h3 className="text-center">Sign in to save your todos forever.</h3>
+				<div className="text-center">
+					<button
+						className="btn btn-default"
+						onClick={this.signIn}>
+						Google
+					</button>
+					<button
+						className="btn btn-default"
+						onClick={this.facebookSignIn}>
+						Facebook
+					</button>
+
+				</div>
+
 			</div>
 		)
 	}

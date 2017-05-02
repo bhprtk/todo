@@ -12,6 +12,7 @@ injectTapEventPlugin();
 
 import './services/FirebaseInit.js';
 import './styles/animate.css';
+import './styles/bootstrap-social.css';
 import './styles/calendar.css';
 import './styles/menu.css';
 import './styles/style.css';
