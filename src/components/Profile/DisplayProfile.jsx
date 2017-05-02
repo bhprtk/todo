@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card } from 'material-ui/Card';
 import ProgressBar from './ProgressBar';
 import LogoutDialog from '../LogoutDialog';
+import Share from './Share';
 
 class DisplayProfile extends Component {
 	constructor(props) {
@@ -48,7 +49,11 @@ class DisplayProfile extends Component {
 						<h1>{displayName}</h1>
 
 					</div>
-					<hr/>
+
+				<hr/>
+					<Share />
+				<hr/>
+
 					<ProgressBar />
 				</div>
 
