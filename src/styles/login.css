@@ -1,10 +1,28 @@
-.btn-facebook {
-	background: #4C5769;
+.btn-facebook:hover {
+	background: #4C5769 !important;
+	color: #fff !important;
 }
 
-.btn-google {
-	background: #E57373;
-	margin-right: 10px;
+.btn-facebook {
+	background: #fff !important;
+	color: #4C5769 !important;
+	margin-right: 10px !important;
+	font-weight: bold !important;
+	border: 2px solid #4C5769 !important;
+}
+
+.btn-google{
+	background: #fff !important;
+	color: #E57373 !important;
+	margin-right: 10px !important;
+	font-weight: bold !important;
+	border: 2px solid #E57373 !important;
+	margin-right: 10px !important;
+}
+
+.btn-google:hover  {
+	background: #E57373 !important;
+	color: #fff !important;
 }
 
 .btn-social {
@@ -25,5 +43,5 @@
 }
 
 .social-buttons {
-	
+
 }

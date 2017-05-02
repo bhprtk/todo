@@ -61,7 +61,7 @@ class Login extends Component {
 						<hr/>
 						<button
 							className="btn btn-social btn-google"
-							onClick={this.signIn}>
+							onClick={this.googleSignIn}>
 							<span className="fa fa-google"></span>
 							Google
 						</button>
