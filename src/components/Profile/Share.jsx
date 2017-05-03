@@ -3,24 +3,38 @@ import React, { Component } from 'react';
 class Share extends Component {
 	constructor(props) {
 		super(props);
+
+		this.share = this.share.bind(this);
+	}
+
+	share() {
+		FB.ui(
+   {
+     method: 'share',
+    //  name: 'Facebook Dialogs',
+     href: 'https://github.com/bhprtk',
+    //  picture: 'http://fbrell.com/f8.jpg',
+    //  caption: 'Reference Documentation',
+    //  description: 'Dialogs provide a simple, consistent interface for applications to interface with users.',
+    //  message: 'Facebook Dialogs are easy!'
+   },
+   function(response) {
+     if (response && response.post_id) {
+       alert('Post was published.');
+     } else {
+       alert('Post was not published.');
+     }
+   }
+ );
 	}
 
 	render() {
 		return (
-			<div
-				className="fb-share-button text-center"
-				data-href="https://github.com/bhprtk"
-				data-layout="button"
-				data-size="large"
-				data-mobile-iframe="true">
-				<a
-					className="fb-xfbml-parse-ignore"
-					target="_blank"
-					href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2F&amp;src=sdkpreparse">
-					Share
-				</a>
-
-			</div>
+			<button
+				className="btn btn-info"
+				onClick={this.share}>
+				share
+			</button>
 
 		)
 	}
