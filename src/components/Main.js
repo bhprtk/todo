@@ -10,12 +10,7 @@ import TempMain from './Temp/TempMain';
 class Main extends Component {
 	render() {
 		const { currentUser } = this.props;
-		let displayTodo;
-		// if(currentUser.displayName) {
-		// 	displayTodo = <DisplayTodo />
-		// } else {
-		// 	displayTodo = <TempMain />
-		// }
+
 		return (
 			<div className="container">
 				<NavBar />

@@ -20,6 +20,11 @@ export const editTodo = data => ({
 	data
 })
 
+export const getShareCount = shareCount => ({
+	type: types.GET_SHARE_COUNT,
+	shareCount
+})
+
 export const loginUser = data => ({
 	type: types.LOGIN_USER,
 	data

@@ -27,6 +27,7 @@ class DisplayProfile extends Component {
 	render() {
 		const { displayName, email, photoURL } = this.props.currentUser;
 		const { openLogoutDialog } = this.state;
+		const { shareCount } = this.props;
 		return (
 			<Card
 				className="card">
@@ -50,12 +51,10 @@ class DisplayProfile extends Component {
 
 					</div>
 
-				<hr/>
+					<hr/>
 
-			<Share />
-			<hr/>
+					{shareCount ? <ProgressBar /> : <Share />}
 
-					<ProgressBar />
 				</div>
 
 				<LogoutDialog

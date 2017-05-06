@@ -3,6 +3,7 @@ import currentUser from './currentUserReducer';
 import todos from './todosReducer';
 import selectedDay from './selectedDayReducer';
 import selectedDayTodos from './selectedDayTodosReducer';
+import shareCount from './shareCountReducer';
 import tempTodos from './tempTodosReducer';
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
 	todos,
 	selectedDay,
 	selectedDayTodos,
+	shareCount,
 	tempTodos
 })
 

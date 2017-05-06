@@ -33,6 +33,15 @@ firebase
 	.on('value', snapshot => {
 		const uid = store.getState().currentUser.toJS().uid;
 		const todos = snapshot.val()[uid];
+		const { shareCount } = snapshot.val()[uid];
+
+		if(shareCount) {
+			store.dispatch({
+				type: types.GET_SHARE_COUNT,
+				shareCount
+			})
+		}
+
 		if(todos) {
 			store.dispatch({
 				type: types.ON_CHANGE_TODOS,

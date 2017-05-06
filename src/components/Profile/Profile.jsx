@@ -9,13 +9,14 @@ class Profile extends Component {
 	}
 
 	render() {
-		const { currentUser } = this.props;
+		const { currentUser, shareCount } = this.props;
 		if(currentUser.displayName) {
 			return (
 				<div
 					className="col-md-6 col-sm-6 col-xs-6">
 					<DisplayProfile
-						currentUser={currentUser}/>
+						currentUser={currentUser}
+						shareCount={shareCount} />
 				</div>
 			)
 		} else {
@@ -30,7 +31,8 @@ class Profile extends Component {
 
 function mapStateToProps(state) {
 	return {
-		currentUser: state.currentUser.toJS()
+		currentUser: state.currentUser.toJS(),
+		shareCount: state.shareCount
 	}
 }
 
