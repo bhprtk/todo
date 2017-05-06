@@ -51,8 +51,9 @@ class DisplayProfile extends Component {
 					</div>
 
 				<hr/>
-					<Share />
-				<hr/>
+
+			<Share />
+			<hr/>
 
 					<ProgressBar />
 				</div>

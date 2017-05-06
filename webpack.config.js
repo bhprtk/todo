@@ -17,7 +17,7 @@ module.exports = {
 		loaders: [
 			{test: /\.jsx?$/, exclude: /node_modules/, loader: 'react-hot-loader!babel-loader'},
 			{test: /(\.css)$/, loaders: ['style-loader', 'css-loader']},
-			{ test: /\.(png|jpg|gif)$/, loader: 'url-loader?limit=8192' },
+			{test: /\.(png|jpg|gif)$/, loader: 'url-loader?limit=8192'},
 			 // all below are for bootstrap
 			{test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader'},
 			{test: /\.(woff|woff2)$/, loader: 'url-loader?prefix=font/&limit=5000'},
