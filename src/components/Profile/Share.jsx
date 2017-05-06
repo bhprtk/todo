@@ -9,6 +9,12 @@ class Share extends Component {
 
 	share() {
 		console.log('share')
+		FB.ui({
+		  method: 'share',
+		  href: 'https://developers.facebook.com/docs/',
+		}, function(response){
+			console.log ('response:', response)
+		});
 	}
 
 	render() {
