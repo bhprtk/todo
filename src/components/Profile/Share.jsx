@@ -23,11 +23,20 @@ class Share extends Component {
 
 	render() {
 		return (
-			<button
-				className="btn btn-info"
-				onClick={this.share}>
-				share
-			</button>
+			<div className="text-center">
+				<p>
+					<strong>
+						Share to unlock the progress bar
+					</strong>
+				</p>
+				<br/>
+				<button
+					className="btn btn-social btn-facebook"
+					onClick={this.share}>
+					<span className="fa fa-facebook"></span>
+					Share
+				</button>
+			</div>
 
 		)
 	}
