@@ -1,5 +1,10 @@
 import types from './types';
 
+export const addShareCount = uid => ({
+	type: types.ADD_SHARE_COUNT,
+	uid
+})
+
 export const addToDo = (data) => ({
 	type: types.ADD_TODO,
 	data

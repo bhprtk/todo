@@ -1,4 +1,5 @@
 import { fork } from 'redux-saga/effects';
+import addShareCount from './addShareCountSaga';
 import addTodo from './addTodoSaga';
 import deleteTodo from './deleteTodoSaga';
 import editTodo from './editTodoSaga';
@@ -9,6 +10,7 @@ import markDone from './markDoneSaga';
 import noUser from './noUserSaga';
 
 export default function* root() {
+	yield fork(addShareCount().watcher);
 	yield fork(addTodo().watcher);
 	yield fork(deleteTodo().watcher);
 	yield fork(editTodo().watcher);

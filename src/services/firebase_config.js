@@ -3,6 +3,13 @@ import moment from 'moment';
 
 const convertDayToKey = day => moment(day).format('MM-DD-YYYY');
 
+export function addShareCount(shareCount, uid) {
+	firebase
+		.database()
+		.ref(`${uid}/shareCount`)
+		.set(shareCount)
+}
+
 export function addTodo(todo, selectedDay, uid) {
 	const day = moment(selectedDay).format('MM-DD-YYYY');
 	const now = moment().format('HH:mm:ss');
@@ -28,6 +35,16 @@ export function editTodo(todo, selectedDay, time, uid) {
 		.database()
 		.ref()
 		.update(updates)
+}
+
+export function getShareCount(uid) {
+	return (
+		firebase
+		.database()
+		.ref(`${uid}/shareCount`)
+		.once('value')
+		.then(snap => snap.val())
+	)
 }
 
 export function getTodo(selectedDay, uid) {

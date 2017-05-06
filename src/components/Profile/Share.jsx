@@ -1,4 +1,7 @@
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import * as actions from '../../actions/creators';
 
 class Share extends Component {
 	constructor(props) {
@@ -8,13 +11,14 @@ class Share extends Component {
 	}
 
 	share() {
-		console.log('share')
+		const { actions, currentUser } = this.props;
 		FB.ui({
 		  method: 'share',
 		  href: 'https://developers.facebook.com/docs/',
-		}, function(response){
-			console.log ('response:', response)
-		});
+		}, () => {
+			actions.addShareCount(currentUser.uid)
+			}
+		);
 	}
 
 	render() {
@@ -29,4 +33,16 @@ class Share extends Component {
 	}
 }
 
-export default Share;
+function mapStateToProps(state) {
+	return {
+		currentUser: state.currentUser.toJS()
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: bindActionCreators(actions, dispatch)
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Share);
