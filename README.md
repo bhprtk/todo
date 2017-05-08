@@ -7,7 +7,7 @@
 
 
 ## Technologies Used
-* ![alt text](http://logos-download.com/wp-content/uploads/2016/09/React_logo_wordmark.png =100x20)
+* ![alt text](./images/react_logo.png =100x20)
 * ReactJS
 * Redux
 * NodeJS
