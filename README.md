@@ -7,14 +7,6 @@
 
 
 ## Technologies Used
-* <img src="./dist/images/logos/react.png" width="50">
-* <img src="./dist/images/logos/redux.png" width="50">
-* ReactJS
-* Redux
-* NodeJS
-* Google Maps
-  * Autocomplete
-  * Markers
-  * Distance Matrix
-* Yelp API
-* Heroku
+* <img src="./dist/images/logos/react.png" width="100">
+* <img src="./dist/images/logos/redux.png" width="100">
+* <img src="./dist/images/logos/firebase.png" width="100">
