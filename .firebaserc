@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "todo-90790",
-    "staginh": "todo-90790"
+    "staginh": "todo-90790",
+    "staging": "todo-90790"
   }
 }

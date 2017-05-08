@@ -5,6 +5,7 @@ const INITIAL_STATE = 0;
 
 export function getShareCount(state = INITIAL_STATE, action) {
 	const { shareCount } = action;
+	console.log ('shareCount:', shareCount)
 	return shareCount;
 }
 

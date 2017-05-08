@@ -14,7 +14,7 @@ class Share extends Component {
 		const { actions, currentUser } = this.props;
 		FB.ui({
 		  method: 'share',
-		  href: 'https://developers.facebook.com/docs/',
+		  href: 'https://todo-90790.firebaseapp.com/',
 		}, () => {
 			actions.addShareCount(currentUser.uid)
 			}

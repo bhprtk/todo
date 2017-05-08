@@ -34,8 +34,7 @@ firebase
 		const uid = store.getState().currentUser.toJS().uid;
 		const todos = snapshot.val()[uid];
 		const { shareCount } = snapshot.val()[uid];
-
-		if(shareCount) {
+		if(Number.isInteger(shareCount)) {
 			store.dispatch({
 				type: types.GET_SHARE_COUNT,
 				shareCount
