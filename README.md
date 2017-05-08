@@ -7,7 +7,7 @@
 
 
 ## Technologies Used
-* ![alt text](./images/react_logo.png =100x20)
+* ![alt text](./dist/images/react_logo.png =100x20)
 * ReactJS
 * Redux
 * NodeJS
