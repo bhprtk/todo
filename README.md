@@ -7,7 +7,7 @@
 
 
 ## Technologies Used
-* ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+* ![alt text](http://logos-download.com/wp-content/uploads/2016/09/React_logo_wordmark.png)
 * ReactJS
 * Redux
 * NodeJS
