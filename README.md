@@ -7,5 +7,5 @@
 
 
 ## Technologies Used
-<img src="./dist/images/logos/react.png" style={width=75px; margin-top: -10px}> <img src="./dist/images/logos/redux.png" width="100">
+<img src="./dist/images/logos/react.png" style="width: 75px; margin-top: -10px;"> <img src="./dist/images/logos/redux.png" width="100">
 * <img src="./dist/images/logos/firebase.png" width="100">
