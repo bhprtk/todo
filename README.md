@@ -8,6 +8,7 @@
 
 ## Technologies Used
 * ![alt text](./dist/images/react_logo.png)
+<img src="./dist/images/react_logo.png" width="48">
 * ReactJS
 * Redux
 * NodeJS
